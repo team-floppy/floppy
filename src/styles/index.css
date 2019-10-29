@@ -1,0 +1,19 @@
+html,
+body {
+  font-family: "Montserrat", sans-serif !important;
+  font-style: normal;
+  height: 100%;
+}
+
+::placeholder {
+  color: #bdbdbd;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+}
+
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
