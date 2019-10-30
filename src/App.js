@@ -4,6 +4,7 @@ import Register from "./Pages/AuthPages/Register";
 import Example from "./Examples/Example";
 import Login from "./Pages/AuthPages/Login";
 import UserType from "./Pages/SetUpPages/UserType";
+import Home from "./Pages/HomePage/Home";
 
 const Hello = () => <h1>hello world</h1>;
 
@@ -17,6 +18,7 @@ class App extends Component {
           <Route path="/signup" component={Register} />
           <Route path="/signin" component={Login} />
           <Route path="/setup" component={UserType} />
+          <Route path="/home"  component={Home}/>
           <Route path="/example" component={Example} />
         </Switch>
       </Router>
