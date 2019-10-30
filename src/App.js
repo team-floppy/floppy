@@ -4,8 +4,7 @@ import Register from "./Pages/AuthPages/Register";
 import Example from "./Examples/Example";
 import Login from "./Pages/AuthPages/Login";
 import UserType from "./Pages/SetUpPages/UserType";
-
-const Hello = () => <h1>hello world</h1>;
+import Landing from "./Pages/FrontPages/Landing";
 
 class App extends Component {
   componentDidMount() {}
@@ -13,7 +12,7 @@ class App extends Component {
     return (
       <Router>
         <Switch>
-          <Route path="/" component={Hello} exact />
+          <Route path="/" component={Landing} exact />
           <Route path="/signup" component={Register} />
           <Route path="/signin" component={Login} />
           <Route path="/setup" component={UserType} />
