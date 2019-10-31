@@ -3,8 +3,9 @@ import { isMobile } from "react-device-detect";
 
 export default props => (
   <div
-    className="flex justify-center"
     style={{
+      borderTopRightRadius: "20px",
+      borderBottomRightRadius: "20px",
       width: isMobile ? "100%" : "60%",
       backgroundColor: "#212121"
     }}

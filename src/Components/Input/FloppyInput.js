@@ -9,7 +9,7 @@ export default props => {
     <div
       style={{
         display: "inline-flex",
-        flex: "1 1 auto",
+        // flex: "1 1 auto",
         position: "relative",
         width: "100%",
         border: `2px solid ${focus ? color.primary : "transparent"}`,
@@ -32,7 +32,7 @@ export default props => {
           fontWeight: "normal",
           fontSize: 14,
           lineHeight: 17,
-          height: 41,
+          height: 28,
           borderRadius: "60px",
           outline: "none",
           background: color[props.bgColor],
