@@ -4,7 +4,7 @@ import Text from "../../Components/Typography/Text";
 import colors from "../../Reusables/Colors";
 import { HeroText, Close } from "../../Reusables/Icons";
 import FloppyButton from "../../Components/Buttons/FloppyButton";
-import Card from "../../Components/Cards.js/Card";
+import Card from "../../Components/Cards/Card";
 import CardDisplay from "../../Components/Wrappers/CardDisplay";
 import { data, events } from "../../Examples/MockData";
 import Overlay from "../../Components/Overlays/Overlay";
