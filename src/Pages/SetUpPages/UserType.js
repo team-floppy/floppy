@@ -37,52 +37,43 @@ class UserType extends Component {
   render() {
     const { isComedian, isViewer } = this.state;
     return (
-      <section
-        className="flex justify-center items-center flex-col bg-fixed bg-center bg-no-repeat bg-cover"
-        style={{
-          backgroundImage:
-            "url(https://res.cloudinary.com/dus4sijdt/image/upload/v1572142318/Rectangle_45_v10qcg.png) ",
-          height: "100vh"
-        }}
-      >
-        <StepWizard>
-          <SetUpBox>
-            <div>
-              <Text
-                category="p"
-                textContent="You here as ?"
-                lineHeight={44}
-                fontWeight={500}
-                fontSize={25}
-                style={{
-                  textAlign: "center",
-                  color: colors.light,
-                  marginBottom: "2rem"
-                }}
+      <StepWizard>
+        <SetUpBox>
+          <div>
+            <Text
+              category="p"
+              textContent="You here as ?"
+              lineHeight={44}
+              fontWeight={500}
+              fontSize={25}
+              style={{
+                textAlign: "center",
+                color: colors.light,
+                marginBottom: "2rem"
+              }}
+            />
+            <div className="flex">
+              <Viewer
+                isViewer={isViewer}
+                handleIsviewer={this.handleIsviewer}
               />
-              <div className="flex">
-                <Viewer
-                  isViewer={isViewer}
-                  handleIsviewer={this.handleIsviewer}
-                />
-                <Comedian
-                  isComedian={isComedian}
-                  handleIscomedian={this.handleIscomedian}
-                />
-              </div>
-              <div style={{ marginTop: "2rem" }}>
-                <FloppyButton
-                  title="Next"
-                  color="primary"
-                  textColor="light"
-                  height={40}
-                  width={isMobile ? 200 : 300}
-                />
-              </div>
+              <Comedian
+                isComedian={isComedian}
+                handleIscomedian={this.handleIscomedian}
+              />
             </div>
-          </SetUpBox>
-        </StepWizard>
-      </section>
+            <div style={{ marginTop: "2rem" }}>
+              <FloppyButton
+                title="Next"
+                color="primary"
+                textColor="light"
+                height={40}
+                width={isMobile ? 200 : 300}
+              />
+            </div>
+          </div>
+        </SetUpBox>
+      </StepWizard>
     );
   }
 }

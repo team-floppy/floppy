@@ -6,7 +6,7 @@ export default props => {
     <div
       className="flex justify-center p-5"
       style={{
-        width: isMobile ? "18em" : "40em",
+        width: isMobile ? "18em" : "18em",
         height: isMobile ? "18em" : 350,
         background: "#333333",
         boxShadow: "0px 3px 6px rgba(0, 0, 0, 0.25)",
@@ -15,7 +15,6 @@ export default props => {
       }}
     >
       {props.children}
-      
     </div>
   );
 };

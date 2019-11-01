@@ -10,7 +10,7 @@ export default props => {
       className="pr-3"
       style={{
         display: "inline-flex",
-        flex: "1 1 auto",
+        // flex: "1 1 auto",
         position: "relative",
         width: "100%",
         border: `2px solid ${focus ? color.primary : "transparent"}`,
@@ -34,7 +34,7 @@ export default props => {
           fontSize: 14,
           lineHeight: 17,
           height: props.height,
-          borderRadius: "60px",
+         borderRadius: "60px",
           outline: "none",
           background: color[props.bgColor],
           color: props.bgColor === "dark" ? color["light"] : color["dark"]
