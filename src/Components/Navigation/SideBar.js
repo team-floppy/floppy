@@ -6,7 +6,8 @@ import {
   userCheck,
   listBuger,
   cancel,
-  DashBoard
+  DashBoard,
+  line
 } from "../../Reusables/Icons";
 import colors from "../../Reusables/Colors";
 import Text from "../Typography/Text";
@@ -19,12 +20,13 @@ function SideBar(props) {
         style={{
           maxWidth: "20%",
           width: props.open ? "13%" : 0,
-          height: "100%",
+          height: "auto",
           // backgroundColor: "white",
           position: "fixed",
           borderRight: `1px solid ${props.open ? "#333333" : "transparent"}`,
           transition: "0.1s",
-          overflowX: "hidden"
+          overflowX: "hidden",
+          marginTop: 50
         }}
         className={`${props.open ? "pr-10" : ""}`}
       >
@@ -107,8 +109,8 @@ function SideBar(props) {
           />
         </p>
 
-        <div style={styles.line}>
-          <hr />
+        <div className="mt-5">
+          <span>{line}</span>
         </div>
 
         <div className="pt-10">
@@ -128,11 +130,6 @@ function SideBar(props) {
 const styles = {
   iconColor: {
     color: colors.light
-  },
-
-  line: {
-    border: "5px red",
-    width: 160
   }
 };
 

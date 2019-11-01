@@ -247,6 +247,18 @@ export const userCheck = (
   </svg>
 );
 
+export const line = (
+  <svg
+    width="150"
+    height="1"
+    viewBox="0 0 193 1"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <line x1="-4.37114e-08" y1="0.5" x2="193" y2="0.499983" stroke="#333333" />
+  </svg>
+);
+
 export const Play = () => (
   <svg
     width="26"

@@ -14,7 +14,7 @@ import {
 function MainNavBar(props) {
   return (
     <>
-      <div style={styles.body}>
+      <div className="pb-4 pt-4" style={styles.body} id="navbar">
         <div className="flex justify-center">
           <span className="pt-4 pl-10 pr-3" onClick={props.handleNavOpen}>
             {handBuger}
@@ -35,7 +35,7 @@ function MainNavBar(props) {
           <span className="justify-between pt-3 pr-10">{message}</span>
           <span className="pt-3 pr-10">{bell}</span>
           <span className="pt-3">
-            <Avartar />
+            <Avartar height={25} width={25} />
           </span>
           <span className="pr-10 pt-3">{chevron}</span>
         </div>
@@ -50,8 +50,9 @@ const styles = {
     width: "100%",
     display: "flex",
     marginRight: 100,
-    justifyContent: "center",
-    justifyContent: "space-between"
+    top: 0,
+    justifyContent: "space-between",
+    position: "fixed"
   }
 };
 export default MainNavBar;

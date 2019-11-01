@@ -1,10 +1,18 @@
 import React from "react";
 import colors from "../../Reusables/Colors";
 
-function Avartar() {
+function Avartar(props) {
   return (
     <>
-      <div style={styles.wrapper}>
+      <div
+        style={{
+          width: props.width,
+          height: props.height,
+          borderRadius: "50%",
+          backgroundColor: colors.primary,
+          marginTop: props.marginTop
+        }}
+      >
         <h1></h1>
       </div>
     </>
@@ -12,13 +20,6 @@ function Avartar() {
 }
 
 const styles = {
-  wrapper: {
-    width: 25,
-    height: 25,
-    borderRadius: "50%",
-    backgroundColor: colors.primary
-  },
-
   img: {
     width: 100,
     height: 100
