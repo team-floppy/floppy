@@ -10,11 +10,10 @@ function Avartar(props) {
           height: props.height,
           borderRadius: "50%",
           backgroundColor: colors.primary,
-          marginTop: props.marginTop
+          marginTop: props.marginTop,
+          marginRight: props.marginLeft
         }}
-      >
-        <h1></h1>
-      </div>
+      ></div>
     </>
   );
 }

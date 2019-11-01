@@ -79,7 +79,12 @@ class Home extends Component {
                   }}
                 />
 
-                <Avartar width={250} height={250} marginTop={50} />
+                <Avartar
+                  width={200}
+                  height={200}
+                  marginTop={50}
+                  // marginLeft={100}
+                />
               </div>
             </div>
           </div>
