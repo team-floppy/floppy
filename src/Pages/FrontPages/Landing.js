@@ -14,8 +14,35 @@ import AuthBoxHero from "../../Components/Wrappers/AuthBoxHero";
 import AuthBoxInputs from "../../Components/Wrappers/AuthBoxInputs";
 import { facebook, twitter, google } from "../../Reusables/Socials";
 import FloppyInput from "../../Components/Input/FloppyInput";
+import Signup from "../../Components/Auths/Signup";
+import Signin from "../../Components/Auths/Signin";
 
 class Landing extends Component {
+  state = {
+    isPopUp: false,
+    isSignUp: false,
+    isSignIn: false
+  };
+
+  handleOpenPopUp = isWhat => {
+    if (isWhat == "isSignUp") {
+      this.setState({ isSignIn: false, isSignUp: true });
+    } else {
+      this.setState({ isSignIn: true, isSignUp: false });
+    }
+    this.setState(prevState => ({
+      isPopUp: !prevState.isPopUp
+    }));
+  };
+
+  handleOpenPopUpSwitch = isWhat => {
+    if (isWhat == "isSignUp") {
+      this.setState({ isSignIn: false, isSignUp: true });
+    } else {
+      this.setState({ isSignIn: true, isSignUp: false });
+    }
+  };
+
   render() {
     return (
       <section style={{ width: "100%", height: "100vh" }}>
@@ -24,7 +51,7 @@ class Landing extends Component {
           className="flex-grow bg-fixed  bg-center bg-no-repeat bg-cover"
           style={styles.heroContainer}
         >
-          <LandingNavBar />
+          <LandingNavBar handleOpenPopUp={this.handleOpenPopUp} />
 
           <div className="mt-48 ml-20 ">
             <div>
@@ -52,12 +79,12 @@ class Landing extends Component {
                 height={38}
                 width={200}
                 style={{ marginTop: 40 }}
+                action={() => this.handleOpenPopUp("isSignUp")}
               />
             </div>
           </div>
         </div>
         {/* End of hero section */}
-
         {/* Start of main content */}
         <div
           className="p-10"
@@ -115,106 +142,32 @@ class Landing extends Component {
           </CardDisplay>
         </div>
         {/* End of main content  */}
-        <Overlay>
-          <div
-            style={{
-              position: "absolute",
-              top: "50%",
-              left: "50%",
-              fontSize: 50,
-              transform: "translate(-50%,-50%)"
-            }}
-          >
-            <AuthBox>
-              <AuthBoxHero image="https://images.pexels.com/photos/476/man-person-red-white.jpg?cs=srgb&dl=artist-circus-clown-476.jpg&fm=jpg">
-                <h1>Hello</h1>
-              </AuthBoxHero>
-              <AuthBoxInputs>
-                <div className="flex justify-end pr-5 pt-3">
-                  <Close />
-                </div>
-
-                <div className="flex justify-center">
-                  <div>
-                    <Text
-                      category="p"
-                      textContent="Create Account"
-                      lineHeight={59}
-                      fontWeight={600}
-                      fontSize={30}
-                      style={{
-                        textAlign: "center",
-                        color: colors.primary
-                      }}
-                    />
-
-                    <div
-                      className="flex   mt-5 mb-5"
-                      style={{ justifyContent: "space-evenly" }}
-                    >
-                      <div>{facebook}</div>
-                      <div>{twitter}</div>
-                      <div>{google}</div>
-                    </div>
-
-                    <Text
-                      category="p"
-                      textContent="or sign up with"
-                      lineHeight={20}
-                      fontWeight={500}
-                      fontSize={16}
-                      style={{
-                        textAlign: "center",
-                        color: colors.light
-                      }}
-                    />
-
-                    <div>
-                      <FloppyInput
-                        type="text"
-                        bgColor="dark"
-                        placeholder="Username"
-                        success={true}
-                        error={false}
-                      />
-
-                      <FloppyInput
-                        type="text"
-                        bgColor="dark"
-                        placeholder="Name"
-                        success={true}
-                        error={false}
-                      />
-
-                      <FloppyInput
-                        type="text"
-                        bgColor="dark"
-                        placeholder="email"
-                        success={false}
-                        error={true}
-                      />
-
-                      <FloppyInput
-                        type="password"
-                        bgColor="dark"
-                        placeholder="Password"
-                        success={true}
-                        error={false}
-                      />
-
-                      <FloppyButton
-                        title="Sign up"
-                        color="primary"
-                        textColor="light"
-                        height={41}
-                      />
-                    </div>
-                  </div>
-                </div>
-              </AuthBoxInputs>
-            </AuthBox>
-          </div>
-        </Overlay>
+        {this.state.isPopUp && (
+          <Overlay>
+            <div
+              style={{
+                position: "absolute",
+                top: "50%",
+                left: "50%",
+                fontSize: 50,
+                transform: "translate(-50%,-50%)"
+              }}
+            >
+              {this.state.isSignUp && (
+                <Signup
+                  handleOpenPopUp={this.handleOpenPopUp}
+                  handleOpenPopUpSwitch={this.handleOpenPopUpSwitch}
+                />
+              )}
+              {this.state.isSignIn && (
+                <Signin
+                  handleOpenPopUp={this.handleOpenPopUp}
+                  handleOpenPopUpSwitch={this.handleOpenPopUpSwitch}
+                />
+              )}
+            </div>
+          </Overlay>
+        )}
       </section>
     );
   }

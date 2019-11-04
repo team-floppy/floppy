@@ -15,6 +15,7 @@ import colors from "../../Reusables/Colors";
 export default props => (
   <button
     className="cursor-pointer"
+    onClick={props.action}
     style={{
       height: props.height,
       width: props.width ? props.width : "100%",

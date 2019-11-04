@@ -2,7 +2,7 @@ import React from "react";
 import Logo from "../../Reusables/Logo";
 import FloppyButton from "../Buttons/FloppyButton";
 
-const LandingNavBar = () => {
+const LandingNavBar = props => {
   return (
     <>
       <div className="flex justify-between">
@@ -16,6 +16,7 @@ const LandingNavBar = () => {
             textColor="light"
             height={38}
             width={157}
+            action={props.handleOpenPopUp}
           />
         </div>
       </div>
