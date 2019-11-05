@@ -7,7 +7,11 @@ import {
   listBuger,
   cancel,
   DashBoard,
-  line
+  line,
+  arrowUp,
+  favourites,
+  watchLater,
+  Clicker
 } from "../../Reusables/Icons";
 import colors from "../../Reusables/Colors";
 import Text from "../Typography/Text";
@@ -20,7 +24,7 @@ function SideBar(props) {
         style={{
           maxWidth: "20%",
           width: props.open ? "13%" : 0,
-          height: "auto",
+          height: "100vh",
           // backgroundColor: "white",
           position: "fixed",
           borderRight: `1px solid ${props.open ? "#333333" : "transparent"}`,
@@ -30,27 +34,32 @@ function SideBar(props) {
         }}
         className={`${props.open ? "pr-10" : ""}`}
       >
-        <p className="flex pb-8">
-          <span className="pr-2">{home}</span>
-          <Text
-            category="span"
-            textContent="Home"
-            lineHeight={59}
-            fontWeight={200}
-            fontSize={15}
-            style={{
-              color: colors.light
-            }}
-          />
-        </p>
+        <div className="flex">
+          {/* {Clicker} */}
+          <p className="flex pb-8">
+            <span className="pr-2 flex">
+              <div>{home}</div>
+            </span>
+            <Text
+              category="span"
+              textContent="Home"
+              lineHeight={59}
+              fontWeight={600}
+              fontSize={11}
+              style={{
+                color: colors.light
+              }}
+            />
+          </p>
+        </div>
         <p className="flex pb-8">
           <span className="pr-2">{briefCase}</span>
           <Text
             category="span"
             textContent="Discovery"
             lineHeight={59}
-            fontWeight={200}
-            fontSize={15}
+            fontWeight={600}
+            fontSize={11}
             style={{
               color: colors.light
             }}
@@ -62,8 +71,8 @@ function SideBar(props) {
             category="span"
             textContent="FloppyLive"
             lineHeight={59}
-            fontWeight={200}
-            fontSize={15}
+            fontWeight={600}
+            fontSize={11}
             style={{
               color: colors.light
             }}
@@ -75,8 +84,8 @@ function SideBar(props) {
             category="span"
             textContent="Comedians"
             lineHeight={59}
-            fontWeight={200}
-            fontSize={15}
+            fontWeight={600}
+            fontSize={11}
             style={{
               color: colors.light
             }}
@@ -88,8 +97,8 @@ function SideBar(props) {
             category="span"
             textContent="Categories"
             lineHeight={59}
-            fontWeight={200}
-            fontSize={15}
+            fontWeight={600}
+            fontSize={11}
             style={{
               color: colors.light
             }}
@@ -101,25 +110,67 @@ function SideBar(props) {
             category="span"
             textContent="Analytics"
             lineHeight={59}
-            fontWeight={200}
-            fontSize={15}
+            fontWeight={600}
+            fontSize={11}
             style={{
               color: colors.light
             }}
           />
         </p>
 
-        <div className="mt-5">
+        <div className="mb-2">
           <span>{line}</span>
         </div>
 
-        <div className="pt-10">
+        <p className="flex pb-6 pt-5">
+          <span className="pr-2">{arrowUp}</span>
+          <Text
+            category="span"
+            textContent="Your Post"
+            lineHeight={59}
+            fontWeight={100}
+            fontSize={10}
+            style={{
+              color: colors.light
+            }}
+          />
+        </p>
+
+        <p className="flex pb-6">
+          <span className="pr-2">{favourites}</span>
+          <Text
+            category="span"
+            textContent="Favourites"
+            lineHeight={59}
+            fontWeight={100}
+            fontSize={10}
+            style={{
+              color: colors.light
+            }}
+          />
+        </p>
+
+        <p className="flex pb-6">
+          <span className="pr-2">{watchLater}</span>
+          <Text
+            category="span"
+            textContent="Watch Later"
+            lineHeight={59}
+            fontWeight={100}
+            fontSize={10}
+            style={{
+              color: colors.light
+            }}
+          />
+        </p>
+
+        <div className="pb-28 mr-12">
           <FloppyButton
             title="Create post"
             color="primary"
             textColor="light"
-            height={38}
-            width={150}
+            height={36}
+            width={120}
           />
         </div>
       </div>

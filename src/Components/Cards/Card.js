@@ -27,7 +27,6 @@ const Card = props => {
         className="bg-no-repeat bg-cover"
         style={{
           backgroundImage: `url(${thumb})`,
-
           height: "100%",
           width: "100%",
           borderRadius: 20
