@@ -4,6 +4,8 @@ import colors from "../../Reusables/Colors";
 import SideBar from "../../Components/Navigation/SideBar";
 import InnerHome from "./InnerHome";
 import DiscoverPage from "./DiscoverPage";
+import FloppyLive from "./FloppyLive";
+import Overlay from "../../Components/Overlays/Overlay";
 
 class Home extends Component {
   constructor(props) {
@@ -58,7 +60,8 @@ class Home extends Component {
               }}
             >
               {/* <InnerHome /> */}
-              <DiscoverPage />
+              {/* <DiscoverPage /> */}
+              {/* <FloppyLive /> */}
             </div>
           </div>
         </section>

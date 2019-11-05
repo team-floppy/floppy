@@ -5,14 +5,20 @@ import Avartar from "../../Components/Avatars/Avartar";
 import CardDisplay from "../../Components/Wrappers/CardDisplay";
 import { data } from "../../Examples/MockData";
 import colors from "../../Reusables/Colors";
+import { Live, ellipse, arrowRight } from "../../Reusables/Icons";
 
-function DiscoverPage() {
+function FloppyLive() {
   return (
     <div>
+      <div className="flex">
+        {Live}
+        <span className="mt-40 ml-5">{ellipse}</span>
+      </div>
+
       <div className="flex justify-between">
         <Text
           category="p"
-          textContent="Recommended For You"
+          textContent="Upcoming Shows from D.I.E.T"
           lineHeight={29}
           fontWeight={600}
           fontSize={24}
@@ -53,7 +59,7 @@ function DiscoverPage() {
         <div className="flex justify-between">
           <Text
             category="p"
-            textContent="Recent Post from People you know"
+            textContent="Previous Shows from D.I.E.T"
             lineHeight={29}
             fontWeight={600}
             fontSize={24}
@@ -92,7 +98,7 @@ function DiscoverPage() {
         <div className="flex justify-between">
           <Text
             category="p"
-            textContent="Suggestions From your most watched"
+            textContent="Suggestions From your most watched D.I.E.T shows"
             lineHeight={29}
             fontWeight={600}
             fontSize={24}
@@ -134,4 +140,4 @@ function DiscoverPage() {
   );
 }
 
-export default DiscoverPage;
+export default FloppyLive;
