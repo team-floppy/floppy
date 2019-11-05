@@ -142,6 +142,8 @@ class Landing extends Component {
           </CardDisplay>
         </div>
         {/* End of main content  */}
+
+ 
         {this.state.isPopUp && (
           <Overlay>
             <div
@@ -168,6 +170,7 @@ class Landing extends Component {
             </div>
           </Overlay>
         )}
+
       </section>
     );
   }
