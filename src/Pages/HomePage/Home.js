@@ -2,16 +2,22 @@ import React, { Component } from "react";
 import MainNavBar from "../../Components/Navigation/MainNavBar";
 import colors from "../../Reusables/Colors";
 import SideBar from "../../Components/Navigation/SideBar";
+import StepWizard from "react-step-wizard";
 import Card from "../../Components/Cards/Card";
 import Text from "../../Components/Typography/Text";
 import Avartar from "../../Components/Avatars/Avartar";
+import Overlay from "../../Components/Overlays/Overlay";
+import SetUpBox from "../../Components/Wrappers/SetUpBox";
+import UserType from "../SetUpPages/UserType";
+import UserChoice from "../SetUpPages/UserChoice";
 
 class Home extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      open: true
+      open: true,
+      isPopUp: true
     };
   }
 
@@ -21,18 +27,11 @@ class Home extends Component {
     }));
   };
 
-  componentDidMount() {
-    // window.onscroll = fire;
-    // var navbar = document.getElementById("navbar");
-    // var sticky = navbar.offsetTop;
-    // function fire() {
-    //   if (window.pageYOffset >= sticky) {
-    //     navbar.style.top = 0;
-    //   } else {
-    //     console.log("he");
-    //   }
-    // }
-  }
+  handleOpenPopUp = isWhat => {
+    this.setState(prevState => ({
+      isPopUp: !prevState.isPopUp
+    }));
+  };
 
   render() {
     return (
@@ -88,6 +87,25 @@ class Home extends Component {
               </div>
             </div>
           </div>
+
+          {this.state.isPopUp && (
+            <Overlay>
+              <div
+                style={{
+                  position: "absolute",
+                  top: "50%",
+                  left: "50%",
+                  fontSize: 50,
+                  transform: "translate(-50%,-50%)"
+                }}
+              >
+                <StepWizard>
+                  <UserType />
+                  <UserChoice handleOpenPopUp={this.handleOpenPopUp} />
+                </StepWizard>
+              </div>
+            </Overlay>
+          )}
         </section>
       </>
     );
