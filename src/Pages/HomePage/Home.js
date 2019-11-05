@@ -2,9 +2,8 @@ import React, { Component } from "react";
 import MainNavBar from "../../Components/Navigation/MainNavBar";
 import colors from "../../Reusables/Colors";
 import SideBar from "../../Components/Navigation/SideBar";
-import Card from "../../Components/Cards.js/Card";
-import Text from "../../Components/Typography/Text";
-import Avartar from "../../Components/Avatars/Avartar";
+import InnerHome from "./InnerHome";
+import DiscoverPage from "./DiscoverPage";
 
 class Home extends Component {
   constructor(props) {
@@ -52,40 +51,14 @@ class Home extends Component {
             <div>
               <SideBar open={this.state.open} />
             </div>
-            <div style={{ width: this.state.open ? "85%" : "100%" }}>
-              <Text
-                category="p"
-                textContent="Recommended"
-                lineHeight={29}
-                fontWeight={600}
-                fontSize={24}
-                style={{
-                  color: colors.light,
-                  marginBottom: 20,
-                  marginTop: 50
-                }}
-              />
-              <Card />
-              <div>
-                <Text
-                  category="p"
-                  textContent="Comedians"
-                  lineHeight={29}
-                  fontWeight={600}
-                  fontSize={24}
-                  style={{
-                    color: colors.light,
-                    marginTop: 280
-                  }}
-                />
-
-                <Avartar
-                  width={200}
-                  height={200}
-                  marginTop={50}
-                  // marginLeft={100}
-                />
-              </div>
+            <div
+              className="p-12"
+              style={{
+                width: this.state.open ? "85%" : "100%"
+              }}
+            >
+              {/* <InnerHome /> */}
+              <DiscoverPage />
             </div>
           </div>
         </section>

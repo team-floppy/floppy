@@ -115,7 +115,7 @@ class Landing extends Component {
           </CardDisplay>
         </div>
         {/* End of main content  */}
-        <Overlay>
+        {/* <Overlay>
           <div
             style={{
               position: "absolute",
@@ -214,7 +214,7 @@ class Landing extends Component {
               </AuthBoxInputs>
             </AuthBox>
           </div>
-        </Overlay>
+        </Overlay> */}
       </section>
     );
   }
