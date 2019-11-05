@@ -2,16 +2,10 @@ import React, { Component } from "react";
 import MainNavBar from "../../Components/Navigation/MainNavBar";
 import colors from "../../Reusables/Colors";
 import SideBar from "../../Components/Navigation/SideBar";
-
 import InnerHome from "./InnerHome";
 import DiscoverPage from "./DiscoverPage";
 import FloppyLive from "./FloppyLive";
 import Overlay from "../../Components/Overlays/Overlay";
-
-import Card from "../../Components/Cards/Card";
-import Text from "../../Components/Typography/Text";
-import Avartar from "../../Components/Avatars/Avartar";
-
 
 class Home extends Component {
   constructor(props) {
@@ -65,10 +59,13 @@ class Home extends Component {
                 width: this.state.open ? "85%" : "100%"
               }}
             >
-              {/* <InnerHome /> */}
+              <InnerHome />
               {/* <DiscoverPage /> */}
               {/* <FloppyLive /> */}
             </div>
+            <Overlay>
+              <div id="talkbubble"></div>
+            </Overlay>
           </div>
         </section>
       </>
