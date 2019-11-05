@@ -7,9 +7,9 @@ export default props => {
 
   return (
     <div
-      className="pr-3"
+      className="pr-3 bg-white"
       style={{
-        display: "inline-flex",
+        display: "flex",
         // flex: "1 1 auto",
         position: "relative",
         width: "100%",
@@ -29,12 +29,12 @@ export default props => {
         style={{
           flex: 1,
           paddingLeft: "20px",
-          width:props.width,
+          width: props.width,
           fontWeight: "normal",
           fontSize: 14,
           lineHeight: 17,
           height: props.height,
-         borderRadius: "60px",
+          borderRadius: "60px",
           outline: "none",
           background: color[props.bgColor],
           color: props.bgColor === "dark" ? color["light"] : color["dark"]

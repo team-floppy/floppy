@@ -2,8 +2,14 @@ import React, { Component } from "react";
 import MainNavBar from "../../Components/Navigation/MainNavBar";
 import colors from "../../Reusables/Colors";
 import SideBar from "../../Components/Navigation/SideBar";
+
 import InnerHome from "./InnerHome";
 import DiscoverPage from "./DiscoverPage";
+
+import Card from "../../Components/Cards/Card";
+import Text from "../../Components/Typography/Text";
+import Avartar from "../../Components/Avatars/Avartar";
+
 
 class Home extends Component {
   constructor(props) {
