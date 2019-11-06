@@ -40,6 +40,23 @@ body {
   line-height: 83.9%;
 }
 
+#talkbubble {
+  background: #333333;
+  position: relative;
+  border-radius: 0 20px 20px 20px;
+}
+
+#talkbubble:before {
+  content: "";
+  position: absolute;
+  right: 100%;
+  width: 0;
+  height: 0;
+  border-top: 1px solid transparent;
+  border-right: 26px solid #333333;
+  border-bottom: 13px solid transparent;
+}
+
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 
 /* Document

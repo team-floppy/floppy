@@ -1,11 +1,11 @@
 import React, { Component } from "react";
+import Dropzone from "react-dropzone";
 import MainNavBar from "../../Components/Navigation/MainNavBar";
 import colors from "../../Reusables/Colors";
 import SideBar from "../../Components/Navigation/SideBar";
-
 import InnerHome from "./InnerHome";
 import DiscoverPage from "./DiscoverPage";
-
+import StepWizard from "react-step-wizard";
 import Card from "../../Components/Cards/Card";
 import Text from "../../Components/Typography/Text";
 import Avartar from "../../Components/Avatars/Avartar";
@@ -13,7 +13,8 @@ import Overlay from "../../Components/Overlays/Overlay";
 import SetUpBox from "../../Components/Wrappers/SetUpBox";
 import UserType from "../SetUpPages/UserType";
 import UserChoice from "../SetUpPages/UserChoice";
-
+import FloppyInput from "../../Components/Input/FloppyInput";
+import FloppyButton from "../../Components/Buttons/FloppyButton";
 
 class Home extends Component {
   constructor(props) {
@@ -21,7 +22,7 @@ class Home extends Component {
 
     this.state = {
       open: true,
-      isPopUp: true
+      isPopUp: false
     };
   }
 
@@ -61,8 +62,9 @@ class Home extends Component {
                 width: this.state.open ? "85%" : "100%"
               }}
             >
-              {/* <InnerHome /> */}
-              <DiscoverPage />
+              <InnerHome />
+              {/* <DiscoverPage /> */}
+              {/* <FloppyLive /> */}
             </div>
           </div>
 
@@ -84,6 +86,107 @@ class Home extends Component {
               </div>
             </Overlay>
           )}
+          {/* <Overlay>
+            <div
+              style={{
+                position: "absolute",
+                top: "50%",
+                left: "50%",
+                fontSize: 50,
+                transform: "translate(-50%,-50%)"
+              }}
+            >
+              <div className="flex">
+                <Avartar
+                  height={35}
+                  width={35}
+                  marginRight={20}
+                  marginBottom={20}
+                />
+                <div
+                  id="talkbubble"
+                  style={{ width: "500px", height: "400px" }}
+                >
+                  <div className="p-8 ">
+                    <FloppyInput
+                      type="input"
+                      bgColor="dark"
+                      placeholder="Post Title"
+                      marginLeft={20}
+                      height={30}
+                      width={60}
+                    />
+                    <div
+                      style={{
+                        height: "200px",
+                        backgroundColor: colors.dark,
+                        borderRadius: "20px"
+                      }}
+                    >
+                      <Dropzone
+                        onDrop={acceptedFiles => console.log(acceptedFiles)}
+                      >
+                        {({ getRootProps, getInputProps }) => (
+                          <section>
+                            <div
+                              style={{
+                                height: "200px",
+                                outline: "none"
+                              }}
+                              {...getRootProps()}
+                            >
+                              <input {...getInputProps()} />
+                              <Text
+                                category="p"
+                                textContent="Drag and Drop Video here"
+                                lineHeight={20}
+                                fontWeight={500}
+                                fontSize={16}
+                                style={{
+                                  color: colors.light,
+                                  marginTop: 20,
+                                  textAlign: "center",
+                                  paddingTop: 75
+                                }}
+                              />
+                            </div>
+                            <div className="mt-4">
+                              <FloppyInput
+                                type="input"
+                                bgColor="dark"
+                                placeholder="#Tags"
+                                marginLeft={20}
+                                height={30}
+                                width={60}
+                              />
+                            </div>
+
+                            <div className="flex mt-3 ml-1 justify-between">
+                              <FloppyButton
+                                title="Cancel"
+                                borderColor="light"
+                                textColor="light"
+                                height={32}
+                                width={120}
+                              />
+
+                              <FloppyButton
+                                title="Post"
+                                borderColor="light"
+                                textColor="light"
+                                height={32}
+                                width={120}
+                              />
+                            </div>
+                          </section>
+                        )}
+                      </Dropzone>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Overlay> */}
         </section>
       </>
     );

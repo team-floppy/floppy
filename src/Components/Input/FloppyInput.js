@@ -37,7 +37,8 @@ export default props => {
           borderRadius: "60px",
           outline: "none",
           background: color[props.bgColor],
-          color: props.bgColor === "dark" ? color["light"] : color["dark"]
+          color: props.bgColor === "dark" ? color["light"] : color["dark"],
+          padding: props.padding
         }}
       />
 
