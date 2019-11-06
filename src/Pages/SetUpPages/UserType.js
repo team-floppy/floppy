@@ -37,9 +37,16 @@ class UserType extends Component {
   render() {
     const { isComedian, isViewer } = this.state;
     return (
-      <StepWizard>
-        <SetUpBox>
-          <div>
+      <div
+        className="flex justify-center"
+        style={{
+          width: "10em",
+          background: colors.darkX,
+          borderRadius: "20px"
+        }}
+      >
+        <div>
+          <div className="flex justify-center">
             <Text
               category="p"
               textContent="You here as ?"
@@ -47,33 +54,42 @@ class UserType extends Component {
               fontWeight={500}
               fontSize={25}
               style={{
-                textAlign: "center",
                 color: colors.light,
+                marginTop: "2rem",
                 marginBottom: "2rem"
               }}
             />
-            <div className="flex">
+          </div>
+
+          <div className="flex justify-around" style={{ width: "20rem" }}>
+            <div>
               <Viewer
                 isViewer={isViewer}
                 handleIsviewer={this.handleIsviewer}
               />
+            </div>
+            <div>
               <Comedian
                 isComedian={isComedian}
                 handleIscomedian={this.handleIscomedian}
               />
             </div>
-            <div style={{ marginTop: "2rem" }}>
-              <FloppyButton
-                title="Next"
-                color="primary"
-                textColor="light"
-                height={40}
-                width={isMobile ? 200 : 300}
-              />
-            </div>
           </div>
-        </SetUpBox>
-      </StepWizard>
+          <div
+            className="flex justify-center "
+            style={{ marginTop: "2rem", marginBottom: "2rem" }}
+          >
+            <FloppyButton
+              title="Next"
+              color="primary"
+              textColor="light"
+              height={38}
+              width={isMobile ? 200 : 300}
+              action={this.props.nextStep}
+            />
+          </div>
+        </div>
+      </div>
     );
   }
 }
