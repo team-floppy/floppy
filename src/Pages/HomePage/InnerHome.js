@@ -18,7 +18,7 @@ function innerHome() {
         style={{
           color: colors.light,
           marginBottom: 20,
-          marginTop: 30
+          marginTop: 0
         }}
       />
       <CardDisplay>
