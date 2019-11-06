@@ -45,105 +45,105 @@ class Landing extends Component {
 
   render() {
     return (
-      <section style={{ width: "100%", height: "100vh" }}>
+      <section style={{ height: "100vh" }}>
         {/* Section for the hero */}
         <div
           className="flex-grow bg-fixed  bg-center bg-no-repeat bg-cover"
           style={styles.heroContainer}
         >
-          <LandingNavBar handleOpenPopUp={this.handleOpenPopUp} />
+          <div className="container mx-auto px-10 py-5 pt-10">
+            <LandingNavBar handleOpenPopUp={this.handleOpenPopUp} />
 
-          <div className="mt-48 ml-20 ">
-            <div>
-              <HeroText />
-            </div>
-            <div style={{ width: 534 }}>
-              <Text
-                category="p"
-                textContent="Kill the boredom and get filled with life and laughter. 
+            <div className="mt-40">
+              <div>
+                <HeroText />
+              </div>
+              <div style={{ width: 534 }}>
+                <Text
+                  category="p"
+                  textContent="Kill the boredom and get filled with life and laughter. 
               Enjoy your Live shows, cracks and memes."
-                lineHeight={20}
-                fontWeight={500}
-                fontSize={16}
-                style={{
-                  color: colors.light,
-                  marginTop: 20
-                }}
-              />
-            </div>
-            <div className="mr-10 ">
-              <FloppyButton
-                title="Join now"
-                color="primary"
-                textColor="light"
-                height={38}
-                width={200}
-                style={{ marginTop: 40 }}
-                action={() => this.handleOpenPopUp("isSignUp")}
-              />
+                  lineHeight={20}
+                  fontWeight={500}
+                  fontSize={16}
+                  style={{
+                    color: colors.light,
+                    marginTop: 20
+                  }}
+                />
+              </div>
+              <div className="mr-10 ">
+                <FloppyButton
+                  title="Join now"
+                  color="primary"
+                  textColor="darkX"
+                  height={38}
+                  width={200}
+                  style={{ marginTop: 40 }}
+                  action={() => this.handleOpenPopUp("isSignUp")}
+                />
+              </div>
             </div>
           </div>
         </div>
         {/* End of hero section */}
         {/* Start of main content */}
-        <div
-          className="p-10"
-          style={{ height: "auto", backgroundColor: colors.darkX }}
-        >
-          <Text
-            category="p"
-            textContent="Popular"
-            lineHeight={44}
-            fontWeight={500}
-            fontSize={25}
-            style={{
-              color: colors.light,
-              marginBottom: 20
-            }}
-          />
-
-          <CardDisplay>
-            {data.map((comedy, i) => (
-              <Card
-                key={i}
-                thumbnail={comedy.thumbnail}
-                static={comedy.static}
-                title={comedy.title}
-                views={comedy.views}
-                username={comedy.username}
-              />
-            ))}
-          </CardDisplay>
-          <div className="pt-10">
+        <div style={{ height: "auto", backgroundColor: colors.darkX }}>
+          <div className=" container mx-auto px-10 py-5">
             <Text
               category="p"
-              textContent="Upcoming Live Shows"
+              textContent="Popular"
               lineHeight={44}
               fontWeight={500}
               fontSize={25}
               style={{
                 color: colors.light,
-
                 marginBottom: 20
               }}
             />
-          </div>
-          <CardDisplay>
-            {events.map((event, i) => (
-              <Card
-                key={i}
-                event={true}
-                static={event.static}
-                title={event.title}
-                views={event.views}
-                username={event.username}
+
+            <CardDisplay>
+              {data.map((comedy, i) => (
+                <Card
+                  key={i}
+                  thumbnail={comedy.thumbnail}
+                  static={comedy.static}
+                  title={comedy.title}
+                  views={comedy.views}
+                  username={comedy.username}
+                />
+              ))}
+            </CardDisplay>
+            <div className="pt-10">
+              <Text
+                category="p"
+                textContent="Upcoming Live Shows"
+                lineHeight={44}
+                fontWeight={500}
+                fontSize={25}
+                style={{
+                  color: colors.light,
+
+                  marginBottom: 20
+                }}
               />
-            ))}
-          </CardDisplay>
+            </div>
+            <CardDisplay>
+              {events.map((event, i) => (
+                <Card
+                  key={i}
+                  event={true}
+                  static={event.static}
+                  title={event.title}
+                  views={event.views}
+                  username={event.username}
+                />
+              ))}
+            </CardDisplay>
+          </div>
         </div>
         {/* End of main content  */}
 
- 
         {this.state.isPopUp && (
           <Overlay>
             <div
@@ -170,7 +170,6 @@ class Landing extends Component {
             </div>
           </Overlay>
         )}
-
       </section>
     );
   }

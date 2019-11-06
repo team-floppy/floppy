@@ -393,8 +393,6 @@ export const cancel = (
   </svg>
 );
 
-export const Live =()
-
 export const Clicker = (
   <svg
     width="15"

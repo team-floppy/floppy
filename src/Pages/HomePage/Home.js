@@ -2,10 +2,9 @@ import React, { Component } from "react";
 import MainNavBar from "../../Components/Navigation/MainNavBar";
 import colors from "../../Reusables/Colors";
 import SideBar from "../../Components/Navigation/SideBar";
-
+import StepWizard from "react-step-wizard";
 import InnerHome from "./InnerHome";
 import DiscoverPage from "./DiscoverPage";
-
 import Card from "../../Components/Cards/Card";
 import Text from "../../Components/Typography/Text";
 import Avartar from "../../Components/Avatars/Avartar";
@@ -13,7 +12,6 @@ import Overlay from "../../Components/Overlays/Overlay";
 import SetUpBox from "../../Components/Wrappers/SetUpBox";
 import UserType from "../SetUpPages/UserType";
 import UserChoice from "../SetUpPages/UserChoice";
-
 
 class Home extends Component {
   constructor(props) {

@@ -6,10 +6,10 @@ const LandingNavBar = props => {
   return (
     <>
       <div className="flex justify-between">
-        <div className="m-5 ml-20">
+        <div className="">
           <div>{Logo}</div>
         </div>
-        <div className="m-6 pt-2  pr-10 ">
+        <div className=" ">
           <FloppyButton
             title="Sign in"
             borderColor="light"

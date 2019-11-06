@@ -20,7 +20,7 @@ const Card = props => {
     }
   };
   return (
-    <div className="mb-16" style={{ height: 220, width: 220 }}>
+    <div style={{ height: 220, width: 220, marginBottom: "4.3rem" }}>
       <div
         onMouseEnter={HandleMouseEnter}
         onMouseLeave={HandleMouseLeave}
@@ -38,36 +38,43 @@ const Card = props => {
           </div>
         )}
       </div>
-      <div className="mt-1">
-        <Text
-          category="p"
-          textContent={props.title}
-          lineHeight={20}
-          fontSize={15}
+      <div className="mt-2">
+        <p
           style={{
+            fontStyle: "normal",
+            fontWeight: "bold",
+            fontSize: "16px",
+            lineHeight: "22px",
             color: colors.light
           }}
-        />
+        >
+          {props.title}
+        </p>
       </div>
-      <div className="mt-1 flex justify-between">
-        <Text
-          category="p"
-          textContent={props.username}
-          lineHeight={14}
-          fontSize={10}
+      <div className="flex justify-between">
+        <p
           style={{
-            color: colors.primary
+            fontStyle: "normal",
+            fontWeight: "normal",
+            fontSize: "12px",
+            lineHeight: "17px",
+            color: "grey"
           }}
-        />
-        <Text
-          category="p"
-          textContent={`${props.views}  views`}
-          lineHeight={14}
-          fontSize={10}
+        >
+          {props.username}
+        </p>
+
+        <p
           style={{
-            color: colors.light
+            fontStyle: "normal",
+            fontWeight: "normal",
+            fontSize: "12px",
+            lineHeight: "17px",
+            color: "grey"
           }}
-        />
+        >
+          {`${props.views}  views`}
+        </p>
       </div>
     </div>
   );
