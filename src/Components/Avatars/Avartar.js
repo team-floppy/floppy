@@ -12,7 +12,9 @@ function Avartar(props) {
           backgroundColor: colors.primary,
           marginTop: props.marginTop,
           marginRight: props.marginRight,
-          marginBottom: props.marginBottom
+          marginBottom: props.marginBottom,
+          marginLeft: props.marginLeft,
+          paddingTop: props.paddingTop
         }}
       ></div>
     </>
