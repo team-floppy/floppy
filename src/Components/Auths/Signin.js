@@ -18,7 +18,7 @@ const Signin = props => {
             <div>
               <Text
                 category="p"
-                textContent="sign in with"
+                textContent="Sign In"
                 lineHeight={59}
                 fontWeight={600}
                 fontSize={30}
@@ -37,31 +37,30 @@ const Signin = props => {
 
               <Text
                 category="p"
-                textContent="or"
+                textContent="OR"
                 lineHeight={20}
-                fontWeight={500}
-                fontSize={16}
+                fontWeight={900}
+                fontSize={22}
                 style={{
                   textAlign: "center",
                   color: colors.light,
-                  marginBottom: 20,
                   marginTop: 20
                 }}
               />
 
               <div>
-                <div className="pb-3">
+                <div className="pt-8">
                   <FloppyInput
                     type="text"
                     bgColor="dark"
-                    placeholder="email"
+                    placeholder="Email"
                     success={false}
                     error={true}
                     width={281}
                     height={28}
                   />
                 </div>
-                <div className="pb-3">
+                <div className="pt-3">
                   <FloppyInput
                     type="password"
                     bgColor="dark"
@@ -74,7 +73,7 @@ const Signin = props => {
                 </div>
 
                 <FloppyButton
-                  title="Sign in"
+                  title="Sign In"
                   color="primary"
                   textColor="light"
                   height={41}
@@ -105,19 +104,19 @@ const Signin = props => {
           >
             <Text
               category="p"
-              textContent="Don't have an account ?"
+              textContent="Don't have an account?"
               lineHeight={20}
               fontSize={16}
               style={{
                 textAlign: "center",
                 color: colors.light,
-                marginBottom: -20
+                marginTop: 15
               }}
             />
 
-            <div className="m-5">
+            <div className="px-5">
               <FloppyButton
-                title="Sign up"
+                title="Sign Up"
                 borderColor="light"
                 textColor="light"
                 height={41}
