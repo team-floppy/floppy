@@ -6,7 +6,6 @@ import SideBar from "../../Components/Navigation/SideBar";
 import StepWizard from "react-step-wizard";
 import InnerHome from "./InnerHome";
 import DiscoverPage from "./DiscoverPage";
-
 import Card from "../../Components/Cards/Card";
 import Text from "../../Components/Typography/Text";
 import Avartar from "../../Components/Avatars/Avartar";
@@ -16,6 +15,7 @@ import UserType from "../SetUpPages/UserType";
 import UserChoice from "../SetUpPages/UserChoice";
 import FloppyInput from "../../Components/Input/FloppyInput";
 import FloppyButton from "../../Components/Buttons/FloppyButton";
+import FloppyLive from "../../Pages/HomePage/FloppyLive";
 
 class Home extends Component {
   constructor(props) {
@@ -63,9 +63,9 @@ class Home extends Component {
                 width: this.state.open ? "85%" : "100%"
               }}
             >
-              <InnerHome />
+              {/* <InnerHome /> */}
               {/* <DiscoverPage /> */}
-              {/* <FloppyLive /> */}
+              <FloppyLive />
             </div>
           </div>
 

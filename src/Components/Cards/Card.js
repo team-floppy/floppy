@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Play } from "../../Reusables/Icons";
 import Text from "../Typography/Text";
 import colors from "../../Reusables/Colors";
+import { isMobile } from "react-device-detect";
 
 const Card = props => {
   const [thumb, setThumb] = useState(props.static);
@@ -20,7 +21,13 @@ const Card = props => {
     }
   };
   return (
-    <div style={{ height: 220, width: 220, marginBottom: "4.3rem" }}>
+    <div
+      style={{
+        height: isMobile ? 180 : 220,
+        width: isMobile ? 180 : 220,
+        marginBottom: "4.3rem"
+      }}
+    >
       <div
         onMouseEnter={HandleMouseEnter}
         onMouseLeave={HandleMouseLeave}

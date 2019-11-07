@@ -54,11 +54,11 @@ class Landing extends Component {
           <div className="container mx-auto px-10 py-5 pt-10">
             <LandingNavBar handleOpenPopUp={this.handleOpenPopUp} />
 
-            <div className="mt-40">
+            <div className="mt-64">
               <div>
                 <HeroText />
               </div>
-              <div style={{ width: 534 }}>
+              <div style={{ width: isMobile ? "auto" : 534 }}>
                 <Text
                   category="p"
                   textContent="Kill the boredom and get filled with life and laughter. 
@@ -72,7 +72,7 @@ class Landing extends Component {
                   }}
                 />
               </div>
-              <div className="mr-10 ">
+              <div className="md:mr-10 ">
                 <FloppyButton
                   title="Join now"
                   color="primary"
@@ -88,8 +88,14 @@ class Landing extends Component {
         </div>
         {/* End of hero section */}
         {/* Start of main content */}
-        <div style={{ height: "auto", backgroundColor: colors.darkX }}>
-          <div className=" container mx-auto px-10 py-5">
+        <div
+          style={{ height: "auto", backgroundColor: colors.darkX }}
+          className="md:pb-20"
+        >
+          <div
+            className={`container mx-auto ${isMobile ? "px-5" : "px-10"}
+             py-5`}
+          >
             <Text
               category="p"
               textContent="Popular"
@@ -170,6 +176,13 @@ class Landing extends Component {
             </div>
           </Overlay>
         )}
+        <div
+          className="flex justify-between flex-wrap"
+          style={{ width: "100%", height: "50vh", background: colors.primary }}
+        >
+          <div>hello</div>
+          <div>hi</div>
+        </div>
       </section>
     );
   }

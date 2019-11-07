@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserView, MobileView } from "react-device-detect";
+import { BrowserView, MobileView, isMobile } from "react-device-detect";
 
 export const checked = (
   <svg
@@ -322,6 +322,7 @@ export const Play = () => (
 );
 export const HeroText = () => (
   <svg
+    style={{ width: isMobile && "22rem" }}
     width="552"
     height="72"
     viewBox="0 0 552 72"
