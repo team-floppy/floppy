@@ -65,10 +65,10 @@ class Home extends Component {
                 width: this.state.open ? "85%" : "100%"
               }}
             >
-              {/* <Comedians /> */}
+              <Comedians />
               {/* <InnerHome /> */}
               {/* <DiscoverPage /> */}
-              <FloppyLive />
+              {/* <FloppyLive /> */}
             </div>
           </div>
 

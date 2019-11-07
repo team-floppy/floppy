@@ -14,7 +14,7 @@ import {
 function MainNavBar(props) {
   return (
     <>
-      <div className="pb-4 pt-4" style={styles.body} id="navbar">
+      <div className="pb-4 pt-10" style={styles.body} id="navbar">
         <div className="flex justify-center">
           <span className="pt-4 pl-10 pr-3" onClick={props.handleNavOpen}>
             {handBuger}

@@ -9,7 +9,7 @@ import { Live, ellipse, arrowRight } from "../../Reusables/Icons";
 
 function FloppyLive() {
   return (
-    <div>
+    <div className="p-10">
       <div className="flex">
         <div
           style={{
@@ -22,7 +22,7 @@ function FloppyLive() {
         <span className="mt-32 ml-5">{ellipse}</span>
       </div>
 
-      <div className="flex justify-between">
+      <div className="flex justify-between  ">
         <Text
           category="p"
           textContent="Upcoming Shows from D.I.E.T"
@@ -50,19 +50,21 @@ function FloppyLive() {
         />
       </div>
 
-      <CardDisplay>
-        {data.map((comedy, i) => (
-          <Card
-            key={i}
-            thumbnail={comedy.thumbnail}
-            static={comedy.static}
-            title={comedy.title}
-            views={comedy.views}
-            username={comedy.username}
-          />
-        ))}
-      </CardDisplay>
-      <>
+      <div className="pt-5 ">
+        <CardDisplay>
+          {data.map((comedy, i) => (
+            <Card
+              key={i}
+              thumbnail={comedy.thumbnail}
+              static={comedy.static}
+              title={comedy.title}
+              views={comedy.views}
+              username={comedy.username}
+            />
+          ))}
+        </CardDisplay>
+      </div>
+      <div className="pt-5 ">
         <div className="flex justify-between">
           <Text
             category="p"
@@ -142,7 +144,7 @@ function FloppyLive() {
             />
           ))}
         </CardDisplay>
-      </>
+      </div>
     </div>
   );
 }

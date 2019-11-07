@@ -30,6 +30,7 @@ export default props => {
           flex: 1,
           width: props.width,
           padding: 10,
+          paddingLeft: 20,
           fontWeight: "normal",
           fontSize: 14,
           lineHeight: 17,
@@ -45,7 +46,8 @@ export default props => {
         style={{
           display: "flex",
           flexDirection: "column",
-          justifyContent: "center"
+          justifyContent: "center",
+          paddingRight: 10
         }}
       >
         {props.search && search}

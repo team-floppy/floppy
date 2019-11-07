@@ -8,7 +8,7 @@ import colors from "../../Reusables/Colors";
 
 function DiscoverPage() {
   return (
-    <div>
+    <div className="p-10">
       <div className="flex justify-between">
         <Text
           category="p"

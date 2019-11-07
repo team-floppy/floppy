@@ -13,7 +13,7 @@ import Dropzone from "react-dropzone";
 
 function Comedians() {
   return (
-    <div>
+    <div className="p-10">
       <div
         style={{
           height: "300px",
@@ -274,12 +274,13 @@ function Comedians() {
                 <div className="mt-2 ml-2 rounded-lg">
                   <textarea
                     rows="3"
-                    cols="16"
-                    name="description"
                     style={{
                       backgroundColor: colors.dark,
                       color: colors.light,
-                      outline: "none"
+                      outline: "none",
+                      fontSize: "20px",
+                      height: "230px",
+                      width: "100%"
                     }}
                   >
                     Description...
@@ -303,50 +304,6 @@ function Comedians() {
                     width={120}
                   />
                 </div>
-
-                {/* <div
-                  style={{
-                    height: "200px",
-                    backgroundColor: colors.dark,
-                    borderRadius: "20px"
-                  }}
-                >
-                  <Dropzone
-                    onDrop={acceptedFiles => console.log(acceptedFiles)}
-                  >
-                    {({ getRootProps, getInputProps }) => (
-                      <section>
-                        <div
-                          style={{
-                            height: "200px",
-                            outline: "none"
-                          }}
-                          {...getRootProps()}
-                        >
-                          <input {...getInputProps()} />
-                        </div>
-
-                        <div className="flex mt-3 ml-1 justify-between">
-                          <FloppyButton
-                            title="Cancel"
-                            borderColor="light"
-                            textColor="light"
-                            height={32}
-                            width={120}
-                          />
-
-                          <FloppyButton
-                            title="Post"
-                            borderColor="light"
-                            textColor="light"
-                            height={32}
-                            width={120}
-                          />
-                        </div>
-                      </section> */}
-                {/* )}
-                  </Dropzone> */}
-                {/* </div> */}
               </div>
             </div>
           </div>
