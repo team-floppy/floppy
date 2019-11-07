@@ -7,6 +7,9 @@ import { data } from "../../Examples/MockData";
 import colors from "../../Reusables/Colors";
 import { Live, ellipse, arrowRight } from "../../Reusables/Icons";
 import FloppyButton from "../../Components/Buttons/FloppyButton";
+import Overlay from "../../Components/Overlays/Overlay";
+import FloppyInput from "../../Components/Input/FloppyInput";
+import Dropzone from "react-dropzone";
 
 function Comedians() {
   return (
@@ -105,7 +108,6 @@ function Comedians() {
           </div>
         </div>
       </div>
-
       <div className="flex justify-between">
         <Text
           category="p"
@@ -133,7 +135,6 @@ function Comedians() {
           }}
         />
       </div>
-
       <CardDisplay>
         {data.map((comedy, i) => (
           <Card
@@ -227,6 +228,130 @@ function Comedians() {
           ))}
         </CardDisplay>
       </>
+      )}
+      <Overlay>
+        <div
+          style={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            fontSize: 50,
+            transform: "translate(-50%,-50%)"
+          }}
+        >
+          <div className="flex">
+            <Avartar
+              height={35}
+              width={35}
+              marginRight={20}
+              marginBottom={20}
+            />
+            <div id="talkbubble" style={{ width: "500px", height: "400px" }}>
+              <div className="p-4 ">
+                <Text
+                  category="p"
+                  textContent="Send an Inquiry to BasketMouth"
+                  lineHeight={20}
+                  fontWeight={500}
+                  fontSize={16}
+                  style={{
+                    color: colors.light,
+                    textAlign: "center"
+                  }}
+                />
+                <div className="mt-4 mb-5">
+                  <FloppyInput
+                    type="input"
+                    bgColor="dark"
+                    placeholder="Work Type"
+                    color="colors.light"
+                    marginLeft={20}
+                    height={30}
+                    width={60}
+                  />
+                </div>
+
+                <div className="mt-2 ml-2 rounded-lg">
+                  <textarea
+                    rows="3"
+                    cols="16"
+                    name="description"
+                    style={{
+                      backgroundColor: colors.dark,
+                      color: colors.light,
+                      outline: "none"
+                    }}
+                  >
+                    Description...
+                  </textarea>
+                </div>
+
+                <div className="flex ml-1 justify-between ">
+                  <FloppyButton
+                    title="Cancel"
+                    borderColor="light"
+                    textColor="light"
+                    height={30}
+                    width={120}
+                  />
+
+                  <FloppyButton
+                    title="Post"
+                    borderColor="light"
+                    textColor="light"
+                    height={30}
+                    width={120}
+                  />
+                </div>
+
+                {/* <div
+                  style={{
+                    height: "200px",
+                    backgroundColor: colors.dark,
+                    borderRadius: "20px"
+                  }}
+                >
+                  <Dropzone
+                    onDrop={acceptedFiles => console.log(acceptedFiles)}
+                  >
+                    {({ getRootProps, getInputProps }) => (
+                      <section>
+                        <div
+                          style={{
+                            height: "200px",
+                            outline: "none"
+                          }}
+                          {...getRootProps()}
+                        >
+                          <input {...getInputProps()} />
+                        </div>
+
+                        <div className="flex mt-3 ml-1 justify-between">
+                          <FloppyButton
+                            title="Cancel"
+                            borderColor="light"
+                            textColor="light"
+                            height={32}
+                            width={120}
+                          />
+
+                          <FloppyButton
+                            title="Post"
+                            borderColor="light"
+                            textColor="light"
+                            height={32}
+                            width={120}
+                          />
+                        </div>
+                      </section> */}
+                {/* )}
+                  </Dropzone> */}
+                {/* </div> */}
+              </div>
+            </div>
+          </div>
+        </div>
+      </Overlay>
     </div>
   );
 }
