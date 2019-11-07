@@ -15,7 +15,9 @@ import UserType from "../SetUpPages/UserType";
 import UserChoice from "../SetUpPages/UserChoice";
 import FloppyInput from "../../Components/Input/FloppyInput";
 import FloppyButton from "../../Components/Buttons/FloppyButton";
-import FloppyLive from "../../Pages/HomePage/FloppyLive";
+
+import Comedians from "./Comedians";
+import FloppyLive from "./FloppyLive";
 
 class Home extends Component {
   constructor(props) {
@@ -63,6 +65,7 @@ class Home extends Component {
                 width: this.state.open ? "85%" : "100%"
               }}
             >
+              {/* <Comedians /> */}
               {/* <InnerHome /> */}
               {/* <DiscoverPage /> */}
               <FloppyLive />

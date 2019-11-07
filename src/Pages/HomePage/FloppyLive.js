@@ -11,8 +11,15 @@ function FloppyLive() {
   return (
     <div>
       <div className="flex">
-        {Live}
-        <span className="mt-40 ml-5">{ellipse}</span>
+        <div
+          style={{
+            height: "300px",
+            width: "1000px",
+            backgroundColor: colors.light,
+            borderRadius: "20px"
+          }}
+        ></div>
+        <span className="mt-32 ml-5">{ellipse}</span>
       </div>
 
       <div className="flex justify-between">

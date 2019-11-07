@@ -28,8 +28,8 @@ export default props => {
         placeholder={props.placeholder}
         style={{
           flex: 1,
-          paddingLeft: "20px",
           width: props.width,
+          padding: 10,
           fontWeight: "normal",
           fontSize: 14,
           lineHeight: 17,
@@ -37,8 +37,7 @@ export default props => {
           borderRadius: "60px",
           outline: "none",
           background: color[props.bgColor],
-          color: props.bgColor === "dark" ? color["light"] : color["dark"],
-          padding: props.padding
+          color: props.bgColor === "dark" ? color["light"] : color["dark"]
         }}
       />
 
