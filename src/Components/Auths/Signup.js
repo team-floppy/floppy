@@ -26,19 +26,19 @@ const Signup = props => {
           >
             <Text
               category="p"
-              textContent="Already have an account ?"
+              textContent="Already have an account?"
               lineHeight={20}
               fontSize={16}
               style={{
                 textAlign: "center",
                 color: colors.light,
-                marginBottom: -20
+                marginTop: 70
               }}
             />
 
-            <div className="m-5">
+            <div className="px-5">
               <FloppyButton
-                title="Sign in"
+                title="Sign In"
                 borderColor="light"
                 textColor="light"
                 height={41}
@@ -69,7 +69,10 @@ const Signup = props => {
                 }}
               />
 
-              <div className="flex" style={{ justifyContent: "space-evenly" }}>
+              <div
+                className="flex pb-5"
+                style={{ justifyContent: "space-evenly" }}
+              >
                 <div>{facebook}</div>
                 <div>{twitter}</div>
                 <div>{google}</div>
@@ -77,20 +80,18 @@ const Signup = props => {
 
               <Text
                 category="p"
-                textContent="or sign up with"
+                textContent="OR"
                 lineHeight={20}
-                fontWeight={500}
-                fontSize={16}
+                fontWeight={900}
+                fontSize={20}
                 style={{
                   textAlign: "center",
-                  color: colors.light,
-                  marginBottom: 20,
-                  marginTop: 20
+                  color: colors.light
                 }}
               />
 
               <div>
-                <div className="pb-3 pt-2">
+                <div className="pb-3 pt-5">
                   <FloppyInput
                     type="text"
                     bgColor="dark"
@@ -116,7 +117,7 @@ const Signup = props => {
                   <FloppyInput
                     type="text"
                     bgColor="dark"
-                    placeholder="email"
+                    placeholder="Email"
                     success={false}
                     error={true}
                     width={281}
@@ -136,10 +137,11 @@ const Signup = props => {
                 </div>
 
                 <FloppyButton
-                  title="Sign up"
+                  title="Sign Up"
                   color="primary"
                   textColor="light"
-                  height={41}
+                  height={38}
+                  style={{}}
                 />
               </div>
             </div>
