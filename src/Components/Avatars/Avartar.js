@@ -11,7 +11,8 @@ function Avartar(props) {
           borderRadius: "50%",
           backgroundColor: colors.primary,
           marginTop: props.marginTop,
-          marginRight: props.marginLeft
+          marginRight: props.marginRight,
+          marginBottom: props.marginBottom
         }}
       ></div>
     </>

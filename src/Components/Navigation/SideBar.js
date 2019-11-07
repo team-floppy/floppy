@@ -128,7 +128,7 @@ function SideBar(props) {
             category="span"
             textContent="Your Post"
             lineHeight={59}
-            fontWeight={100}
+            fontWeight={600}
             fontSize={10}
             style={{
               color: colors.light
@@ -142,7 +142,7 @@ function SideBar(props) {
             category="span"
             textContent="Favourites"
             lineHeight={59}
-            fontWeight={100}
+            fontWeight={600}
             fontSize={10}
             style={{
               color: colors.light
@@ -156,7 +156,7 @@ function SideBar(props) {
             category="span"
             textContent="Watch Later"
             lineHeight={59}
-            fontWeight={100}
+            fontWeight={600}
             fontSize={10}
             style={{
               color: colors.light
