@@ -8,7 +8,7 @@ import colors from "../../Reusables/Colors";
 
 function innerHome() {
   return (
-    <div>
+    <div className="px-10">
       <Text
         category="p"
         textContent="Recommended"

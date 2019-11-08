@@ -8,7 +8,7 @@ import colors from "../../Reusables/Colors";
 
 function DiscoverPage() {
   return (
-    <div className="p-10">
+    <div className="px-10 ">
       <div className="flex justify-between">
         <Text
           category="p"
@@ -18,8 +18,7 @@ function DiscoverPage() {
           fontSize={24}
           style={{
             color: colors.light,
-            marginBottom: 30,
-            marginTop: 30
+            marginBottom: 30
           }}
         />
 

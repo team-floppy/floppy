@@ -22,6 +22,7 @@ const Card = props => {
   };
   return (
     <div
+      className="px-5"
       style={{
         height: isMobile ? 180 : 220,
         width: isMobile ? 180 : 220,

@@ -23,7 +23,7 @@ function SideBar(props) {
       <div
         style={{
           maxWidth: "20%",
-          width: props.open ? "13%" : 0,
+          width: props.open ? "15%" : 0,
           height: "100vh",
           // backgroundColor: "white",
           position: "fixed",

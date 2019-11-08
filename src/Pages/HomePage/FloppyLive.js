@@ -9,7 +9,7 @@ import { Live, ellipse, arrowRight } from "../../Reusables/Icons";
 
 function FloppyLive() {
   return (
-    <div className="p-10">
+    <div className="px-10">
       <div className="flex">
         <div
           style={{
@@ -31,8 +31,8 @@ function FloppyLive() {
           fontSize={24}
           style={{
             color: colors.light,
-            marginBottom: 30,
-            marginTop: 30
+            marginBottom: 15,
+            marginTop: 80
           }}
         />
 
@@ -44,8 +44,8 @@ function FloppyLive() {
           fontSize={15}
           style={{
             color: colors.primary,
-            marginBottom: 30,
-            marginTop: 30
+            marginBottom: 15,
+            marginTop: 80
           }}
         />
       </div>

@@ -21,7 +21,7 @@ function MainNavBar(props) {
           </span>
           <span>{Logo}</span>
         </div>
-        <div>
+        <div className="pl-20">
           <FloppyInput
             type="search"
             bgColor="dark"
