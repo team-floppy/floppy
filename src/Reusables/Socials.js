@@ -2,8 +2,8 @@ import React from "react";
 
 export const google = (
   <svg
-    width="50"
-    height="50"
+    width="35"
+    height="30"
     viewBox="0 0 50 50"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
@@ -18,8 +18,8 @@ export const google = (
 
 export const twitter = (
   <svg
-    width="50"
-    height="50"
+    width="35"
+    height="30"
     viewBox="0 0 50 50"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
@@ -34,8 +34,8 @@ export const twitter = (
 
 export const facebook = (
   <svg
-    width="50"
-    height="50"
+    width="35"
+    height="30"
     viewBox="0 0 50 50"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
