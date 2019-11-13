@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import AuthBox from "../Wrappers/AuthBox";
 import FloppyInput from "../Input/FloppyInput";
 import FloppyButton from "../Buttons/FloppyButton";
@@ -14,7 +15,18 @@ const Signin = props => {
     <div>
       <AuthBox>
         <AuthBoxInputs reverse>
-          <div className="flex justify-center pt-6">
+          <div
+            className="flex justify-end"
+            style={{ position: "absolute", left: "7.3em", top: 15 }}
+          >
+            <span onClick={props.handleOpenPopUp}>
+              <Close />
+            </span>
+          </div>
+          <div
+            className="flex justify-center items-center "
+            style={{ height: "100%" }}
+          >
             <div>
               <Text
                 category="p"
@@ -25,7 +37,7 @@ const Signin = props => {
                 style={{
                   textAlign: "center",
                   color: colors.primary,
-                  marginBottom: 20
+                  marginBottom: 30
                 }}
               />
 
@@ -35,21 +47,18 @@ const Signin = props => {
                 <div>{google}</div>
               </div>
 
-              <Text
-                category="p"
-                textContent="OR"
-                lineHeight={20}
-                fontWeight={900}
-                fontSize={22}
+              <p
                 style={{
+                  fontSize: 16,
                   textAlign: "center",
                   color: colors.light,
-                  marginTop: 20
+                  marginTop: 22
                 }}
-              />
-
+              >
+                or
+              </p>
               <div>
-                <div className="pt-8">
+                <div className="pt-6">
                   <FloppyInput
                     type="text"
                     bgColor="dark"
@@ -75,59 +84,49 @@ const Signin = props => {
                 <FloppyButton
                   title="Sign In"
                   color="primary"
-                  textColor="light"
+                  textColor="darkX"
                   height={41}
                 />
+              </div>
+              <div style={{ position: "relative" }}>
+                <span
+                  onClick={() => props.handleOpenPopUpSwitch("isSignUp")}
+                  style={{
+                    fontSize: 10,
+                    position: "absolute",
+                    top: 20,
+                    left: 80,
+                    textAlign: "center",
+                    color: colors.light
+                  }}
+                >
+                  Don't have an account?
+                  <Link style={{ color: colors.primary, marginLeft: 4 }}>
+                    Sign up
+                  </Link>
+                </span>
               </div>
             </div>
           </div>
         </AuthBoxInputs>
-
-        <AuthBoxHero
-          reverse
-          image="https://images.pexels.com/photos/476/man-person-red-white.jpg?cs=srgb&dl=artist-circus-clown-476.jpg&fm=jpg"
-        >
-          <div className="flex justify-end pr-5 pt-3">
-            <span onClick={props.handleOpenPopUp}>
-              <Close />
-            </span>
-          </div>
-          <div
-            style={{
-              position: "absolute",
-              top: "50%",
-              left: "50%",
-              fontSize: 50,
-              transform: "translate(-50%,-50%)",
-              width: "100%"
-            }}
-          >
-            <Text
-              category="p"
-              textContent="Don't have an account?"
-              lineHeight={20}
-              fontSize={16}
-              style={{
-                textAlign: "center",
-                color: colors.light,
-                marginTop: 15
-              }}
-            />
-
-            <div className="px-5">
-              <FloppyButton
-                title="Sign Up"
-                borderColor="light"
-                textColor="light"
-                height={41}
-                action={() => props.handleOpenPopUpSwitch("isSignUp")}
-              />
-            </div>
-          </div>
-        </AuthBoxHero>
       </AuthBox>
     </div>
   );
 };
 
 export default Signin;
+
+// action={() => props.handleOpenPopUpSwitch("isSignUp")}
+
+{
+  /* <div
+style={{
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  fontSize: 50,
+  transform: "translate(-50%,-50%)",
+  width: "100%"
+}}
+> */
+}

@@ -16,7 +16,12 @@ body {
   background: #333333;
   position: relative;
   border-radius: 0 20px 20px 20px;
+}
 
+.react-multiple-carousel__arrow {
+  outline: none !important;
+  color: "#FFA000" !important;
+  background: "#212121" !important;
 }
 
 #talkbubble:before {
@@ -28,7 +33,6 @@ body {
   border-top: 1px solid transparent;
   border-right: 26px solid #333333;
   border-bottom: 13px solid transparent;
-
 }
 
 @tailwind base;

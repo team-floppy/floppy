@@ -109,8 +109,8 @@ class UserChoice extends Component {
               <CheckButton
                 key={i}
                 title={genre}
-                borderColor="primary"
-                textColor="primary"
+                borderColor="dark"
+                textColor="light"
                 height={38}
                 width={135}
                 handChoice={this.handChoice}
@@ -131,7 +131,7 @@ class UserChoice extends Component {
             />
           </div>
 
-          <div
+          {/* <div
             className="flex justify-center "
             style={{
               marginTop: "2rem",
@@ -149,7 +149,7 @@ class UserChoice extends Component {
             >
               {`${this.props.currentStep}`} / {this.props.totalSteps}
             </span>
-          </div>
+          </div> */}
         </div>
       </div>
     );

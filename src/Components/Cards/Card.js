@@ -23,6 +23,7 @@ const Card = props => {
   return (
     <div
       style={{
+        ...props.style,
         height: isMobile ? 180 : 220,
         width: isMobile ? 180 : 220,
         marginBottom: "4.3rem"

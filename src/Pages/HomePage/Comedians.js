@@ -3,21 +3,22 @@ import Card from "../../Components/Cards/Card";
 import Text from "../../Components/Typography/Text";
 import Avartar from "../../Components/Avatars/Avartar";
 import CardDisplay from "../../Components/Wrappers/CardDisplay";
-import { data } from "../../Examples/MockData";
+import { dataTwo } from "../../Examples/MockData";
 import colors from "../../Reusables/Colors";
 import { Live, ellipse, arrowRight } from "../../Reusables/Icons";
 import FloppyButton from "../../Components/Buttons/FloppyButton";
 import Overlay from "../../Components/Overlays/Overlay";
 import FloppyInput from "../../Components/Input/FloppyInput";
 import Dropzone from "react-dropzone";
+import SubCardDisplay from "../../Components/Wrappers/SubCardDisplay";
 
 function Comedians() {
   return (
-    <div className="p-10">
+    <div className="px-10">
       <div
         style={{
           height: "300px",
-          width: "1000px",
+          width: "930px",
           backgroundColor: colors.dark,
           borderRadius: "20px"
         }}
@@ -89,7 +90,10 @@ function Comedians() {
               paddingTop: 5
             }}
           />
-          <div className="flex justify-around  mr-10" style={{ width: "30%" }}>
+          <div
+            className="flex justify-around  mr-10 pb-10"
+            style={{ width: "30%" }}
+          >
             <FloppyButton
               title="Book"
               color="primary"
@@ -117,8 +121,8 @@ function Comedians() {
           fontSize={24}
           style={{
             color: colors.light,
-            marginBottom: 30,
-            marginTop: 30
+            marginBottom: 15,
+            marginTop: 80
           }}
         />
 
@@ -130,23 +134,25 @@ function Comedians() {
           fontSize={15}
           style={{
             color: colors.primary,
-            marginBottom: 30,
-            marginTop: 30
+            marginBottom: 15,
+            marginTop: 80
           }}
         />
       </div>
-      <CardDisplay>
-        {data.map((comedy, i) => (
-          <Card
-            key={i}
-            thumbnail={comedy.thumbnail}
-            static={comedy.static}
-            title={comedy.title}
-            views={comedy.views}
-            username={comedy.username}
-          />
-        ))}
-      </CardDisplay>
+      <div className="pt-5">
+        <SubCardDisplay>
+          {dataTwo.map((comedy, i) => (
+            <Card
+              key={i}
+              thumbnail={comedy.thumbnail}
+              static={comedy.static}
+              title={comedy.title}
+              views={comedy.views}
+              username={comedy.username}
+            />
+          ))}
+        </SubCardDisplay>
+      </div>
       <>
         <div className="flex justify-between">
           <Text
@@ -175,8 +181,8 @@ function Comedians() {
             }}
           />
         </div>
-        <CardDisplay>
-          {data.map((comedy, i) => (
+        <SubCardDisplay>
+          {dataTwo.map((comedy, i) => (
             <Card
               key={i}
               thumbnail={comedy.thumbnail}
@@ -186,7 +192,7 @@ function Comedians() {
               username={comedy.username}
             />
           ))}
-        </CardDisplay>
+        </SubCardDisplay>
         <div className="flex justify-between">
           <Text
             category="p"
@@ -215,8 +221,8 @@ function Comedians() {
           />
         </div>
 
-        <CardDisplay>
-          {data.map((comedy, i) => (
+        <SubCardDisplay>
+          {dataTwo.map((comedy, i) => (
             <Card
               key={i}
               thumbnail={comedy.thumbnail}
@@ -226,10 +232,10 @@ function Comedians() {
               username={comedy.username}
             />
           ))}
-        </CardDisplay>
+        </SubCardDisplay>
       </>
       )}
-      <Overlay>
+      {/* <Overlay>
         <div
           style={{
             position: "absolute",
@@ -239,13 +245,15 @@ function Comedians() {
             transform: "translate(-50%,-50%)"
           }}
         >
-          <div className="flex">
-            <Avartar
-              height={35}
-              width={35}
-              marginRight={20}
-              marginBottom={20}
-            />
+          <div className="flex p-10 ">
+            <div className="pr-1">
+              <Avartar
+                height={40}
+                width={40}
+                marginRight={20}
+                marginBottom={20}
+              />
+            </div>
             <div id="talkbubble" style={{ width: "500px", height: "400px" }}>
               <div className="p-4 ">
                 <Text
@@ -276,9 +284,10 @@ function Comedians() {
                     rows="3"
                     style={{
                       backgroundColor: colors.dark,
-                      color: colors.light,
+                      color: "#9e9e9e",
+                      padding: 12,
                       outline: "none",
-                      fontSize: "20px",
+                      fontSize: "15px",
                       height: "230px",
                       width: "100%"
                     }}
@@ -308,7 +317,7 @@ function Comedians() {
             </div>
           </div>
         </div>
-      </Overlay>
+      </Overlay> */}
     </div>
   );
 }

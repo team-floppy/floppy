@@ -46,6 +46,12 @@ body {
   border-radius: 0 20px 20px 20px;
 }
 
+.react-multiple-carousel__arrow {
+  outline: none !important;
+  color: "#FFA000" !important;
+  background: "#212121" !important;
+}
+
 #talkbubble:before {
   content: "";
   position: absolute;

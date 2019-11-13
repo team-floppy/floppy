@@ -3,12 +3,34 @@ import Card from "../../Components/Cards/Card";
 import Text from "../../Components/Typography/Text";
 import Avartar from "../../Components/Avatars/Avartar";
 import CardDisplay from "../../Components/Wrappers/CardDisplay";
-import { data } from "../../Examples/MockData";
+import { dataTwo } from "../../Examples/MockData";
 import colors from "../../Reusables/Colors";
+import SubCardDisplay from "../../Components/Wrappers/SubCardDisplay";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
+const responsive = {
+  superLargeDesktop: {
+    // the naming can be any, depends on you.
+    breakpoint: { max: 1800, min: 1000 },
+    items: 5
+  },
+  desktop: {
+    breakpoint: { max: 1400, min: 1004 },
+    items: 4.3
+  },
+  tablet: {
+    breakpoint: { max: 1024, min: 464 },
+    items: 2
+  },
+  mobile: {
+    breakpoint: { max: 464, min: 0 },
+    items: 1
+  }
+};
 
 function innerHome() {
   return (
-    <div>
+    <div className="px-10">
       <Text
         category="p"
         textContent="Recommended"
@@ -21,8 +43,8 @@ function innerHome() {
           marginTop: 0
         }}
       />
-      <CardDisplay>
-        {data.map((comedy, i) => (
+      <SubCardDisplay>
+        {dataTwo.map((comedy, i) => (
           <Card
             key={i}
             thumbnail={comedy.thumbnail}
@@ -32,7 +54,7 @@ function innerHome() {
             username={comedy.username}
           />
         ))}
-      </CardDisplay>
+      </SubCardDisplay>
 
       <Text
         category="p"
@@ -45,14 +67,13 @@ function innerHome() {
           marginTop: 80
         }}
       />
-      <CardDisplay>
+      <Carousel responsive={responsive}>
         <Avartar width={200} height={200} marginTop={20} />
         <Avartar width={200} height={200} marginTop={20} />
         <Avartar width={200} height={200} marginTop={20} />
         <Avartar width={200} height={200} marginTop={20} />
         <Avartar width={200} height={200} marginTop={20} />
-      </CardDisplay>
-
+      </Carousel>
       <Text
         category="p"
         textContent="Popular Sites"
@@ -66,8 +87,8 @@ function innerHome() {
         }}
       />
 
-      <CardDisplay>
-        {data.map((comedy, i) => (
+      <SubCardDisplay>
+        {dataTwo.map((comedy, i) => (
           <Card
             key={i}
             thumbnail={comedy.thumbnail}
@@ -77,7 +98,7 @@ function innerHome() {
             username={comedy.username}
           />
         ))}
-      </CardDisplay>
+      </SubCardDisplay>
     </div>
   );
 }
