@@ -49,7 +49,7 @@ class UserType extends Component {
           <div className="flex justify-center">
             <Text
               category="p"
-              textContent="You here as ?"
+              textContent="You are here as?"
               lineHeight={44}
               fontWeight={500}
               fontSize={25}

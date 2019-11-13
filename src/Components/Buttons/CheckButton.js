@@ -26,9 +26,10 @@ export default props => {
       style={{
         width: "auto",
         background: checked ? colors.primary : "transparent",
-        border: props.borderColor
-          ? `2px solid ${colors[props.borderColor]}`
-          : "",
+        border:
+          props.borderColor && !checked
+            ? `2px solid ${colors[props.borderColor]}`
+            : `2px solid ${colors.darkX}`,
         boxSizing: "border-box",
         color: checked ? colors.light : colors[props.textColor],
         borderRadius: "60px",

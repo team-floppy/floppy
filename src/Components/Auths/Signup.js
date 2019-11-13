@@ -13,48 +13,17 @@ const Signup = props => {
   return (
     <div>
       <AuthBox>
-        <AuthBoxHero image="https://images.pexels.com/photos/476/man-person-red-white.jpg?cs=srgb&dl=artist-circus-clown-476.jpg&fm=jpg">
-          <div
-            style={{
-              position: "absolute",
-              top: "50%",
-              left: "50%",
-              fontSize: 50,
-              transform: "translate(-50%,-50%)",
-              width: "100%"
-            }}
-          >
-            <Text
-              category="p"
-              textContent="Already have an account?"
-              lineHeight={20}
-              fontSize={16}
-              style={{
-                textAlign: "center",
-                color: colors.light,
-                marginTop: 70
-              }}
-            />
-
-            <div className="px-5">
-              <FloppyButton
-                title="Sign In"
-                borderColor="light"
-                textColor="light"
-                height={41}
-                action={props.handleOpenPopUpSwitch}
-              />
-            </div>
-          </div>
-        </AuthBoxHero>
         <AuthBoxInputs>
-          <div className="flex justify-end pr-5 pt-3">
+          <div
+            className="flex justify-end"
+            style={{ position: "absolute", left: "7.3em", top: 15 }}
+          >
             <span onClick={props.handleOpenPopUp}>
               <Close />
             </span>
           </div>
 
-          <div className="flex justify-center">
+          <div className="flex justify-center pt-10">
             <div>
               <Text
                 category="p"
@@ -65,12 +34,12 @@ const Signup = props => {
                 style={{
                   textAlign: "center",
                   color: colors.primary,
-                  marginBottom: 20
+                  marginBottom: 15
                 }}
               />
 
               <div
-                className="flex pb-5"
+                className="flex pb-3"
                 style={{ justifyContent: "space-evenly" }}
               >
                 <div>{facebook}</div>
@@ -78,17 +47,15 @@ const Signup = props => {
                 <div>{google}</div>
               </div>
 
-              <Text
-                category="p"
-                textContent="OR"
-                lineHeight={20}
-                fontWeight={900}
-                fontSize={20}
+              <p
                 style={{
+                  fontSize: 16,
                   textAlign: "center",
                   color: colors.light
                 }}
-              />
+              >
+                or
+              </p>
 
               <div>
                 <div className="pb-3 pt-5">
@@ -124,7 +91,7 @@ const Signup = props => {
                     height={28}
                   />
                 </div>
-                <div className="pb-3">
+                <div>
                   <FloppyInput
                     type="password"
                     bgColor="dark"
@@ -139,10 +106,28 @@ const Signup = props => {
                 <FloppyButton
                   title="Sign Up"
                   color="primary"
-                  textColor="light"
-                  height={38}
+                  textColor="darkx"
+                  height={41}
                   style={{}}
                 />
+              </div>
+              <div style={{ position: "relative" }}>
+                <span
+                  onClick={() => props.handleOpenPopUpSwitch()}
+                  style={{
+                    fontSize: 10,
+                    position: "absolute",
+                    top: 15,
+                    left: 80,
+                    textAlign: "center",
+                    color: colors.light
+                  }}
+                >
+                  Already have an account?
+                  <a style={{ color: colors.primary, marginLeft: 4 }}>
+                    Sign in
+                  </a>
+                </span>
               </div>
             </div>
           </div>

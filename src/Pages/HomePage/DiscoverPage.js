@@ -3,8 +3,9 @@ import Card from "../../Components/Cards/Card";
 import Text from "../../Components/Typography/Text";
 import Avartar from "../../Components/Avatars/Avartar";
 import CardDisplay from "../../Components/Wrappers/CardDisplay";
-import { data } from "../../Examples/MockData";
+import { dataTwo } from "../../Examples/MockData";
 import colors from "../../Reusables/Colors";
+import SubCardDisplay from "../../Components/Wrappers/SubCardDisplay";
 
 function DiscoverPage() {
   return (
@@ -30,14 +31,13 @@ function DiscoverPage() {
           fontSize={15}
           style={{
             color: colors.primary,
-            marginBottom: 30,
-            marginTop: 30
+            marginBottom: 30
           }}
         />
       </div>
 
-      <CardDisplay>
-        {data.map((comedy, i) => (
+      <SubCardDisplay>
+        {dataTwo.map((comedy, i) => (
           <Card
             key={i}
             thumbnail={comedy.thumbnail}
@@ -47,7 +47,7 @@ function DiscoverPage() {
             username={comedy.username}
           />
         ))}
-      </CardDisplay>
+      </SubCardDisplay>
       <>
         <div className="flex justify-between">
           <Text
@@ -76,8 +76,8 @@ function DiscoverPage() {
             }}
           />
         </div>
-        <CardDisplay>
-          {data.map((comedy, i) => (
+        <SubCardDisplay>
+          {dataTwo.map((comedy, i) => (
             <Card
               key={i}
               thumbnail={comedy.thumbnail}
@@ -87,7 +87,7 @@ function DiscoverPage() {
               username={comedy.username}
             />
           ))}
-        </CardDisplay>
+        </SubCardDisplay>
         <div className="flex justify-between">
           <Text
             category="p"
@@ -116,8 +116,8 @@ function DiscoverPage() {
           />
         </div>
 
-        <CardDisplay>
-          {data.map((comedy, i) => (
+        <SubCardDisplay>
+          {dataTwo.map((comedy, i) => (
             <Card
               key={i}
               thumbnail={comedy.thumbnail}
@@ -127,7 +127,7 @@ function DiscoverPage() {
               username={comedy.username}
             />
           ))}
-        </CardDisplay>
+        </SubCardDisplay>
       </>
     </div>
   );

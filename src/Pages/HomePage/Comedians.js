@@ -3,13 +3,14 @@ import Card from "../../Components/Cards/Card";
 import Text from "../../Components/Typography/Text";
 import Avartar from "../../Components/Avatars/Avartar";
 import CardDisplay from "../../Components/Wrappers/CardDisplay";
-import { data } from "../../Examples/MockData";
+import { dataTwo } from "../../Examples/MockData";
 import colors from "../../Reusables/Colors";
 import { Live, ellipse, arrowRight } from "../../Reusables/Icons";
 import FloppyButton from "../../Components/Buttons/FloppyButton";
 import Overlay from "../../Components/Overlays/Overlay";
 import FloppyInput from "../../Components/Input/FloppyInput";
 import Dropzone from "react-dropzone";
+import SubCardDisplay from "../../Components/Wrappers/SubCardDisplay";
 
 function Comedians() {
   return (
@@ -139,8 +140,8 @@ function Comedians() {
         />
       </div>
       <div className="pt-5">
-        <CardDisplay>
-          {data.map((comedy, i) => (
+        <SubCardDisplay>
+          {dataTwo.map((comedy, i) => (
             <Card
               key={i}
               thumbnail={comedy.thumbnail}
@@ -150,7 +151,7 @@ function Comedians() {
               username={comedy.username}
             />
           ))}
-        </CardDisplay>
+        </SubCardDisplay>
       </div>
       <>
         <div className="flex justify-between">
@@ -180,8 +181,8 @@ function Comedians() {
             }}
           />
         </div>
-        <CardDisplay>
-          {data.map((comedy, i) => (
+        <SubCardDisplay>
+          {dataTwo.map((comedy, i) => (
             <Card
               key={i}
               thumbnail={comedy.thumbnail}
@@ -191,7 +192,7 @@ function Comedians() {
               username={comedy.username}
             />
           ))}
-        </CardDisplay>
+        </SubCardDisplay>
         <div className="flex justify-between">
           <Text
             category="p"
@@ -220,8 +221,8 @@ function Comedians() {
           />
         </div>
 
-        <CardDisplay>
-          {data.map((comedy, i) => (
+        <SubCardDisplay>
+          {dataTwo.map((comedy, i) => (
             <Card
               key={i}
               thumbnail={comedy.thumbnail}
@@ -231,7 +232,7 @@ function Comedians() {
               username={comedy.username}
             />
           ))}
-        </CardDisplay>
+        </SubCardDisplay>
       </>
       )}
       {/* <Overlay>

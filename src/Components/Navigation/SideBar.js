@@ -16,6 +16,7 @@ import {
 import colors from "../../Reusables/Colors";
 import Text from "../Typography/Text";
 import FloppyButton from "../Buttons/FloppyButton";
+import { isMobile } from "react-device-detect";
 
 function SideBar(props) {
   return (
@@ -23,7 +24,8 @@ function SideBar(props) {
       <div
         style={{
           maxWidth: "20%",
-          width: props.open ? "15%" : 0,
+          width: props.open && !isMobile ? "15%" : 0,
+
           height: "100vh",
           // backgroundColor: "white",
           position: "fixed",
@@ -32,11 +34,14 @@ function SideBar(props) {
           overflowX: "hidden",
           marginTop: 50
         }}
-        className={`${props.open ? "pr-10" : ""}`}
+        className={`${props.open ? "pr-1" : ""}`}
       >
-        <div className="flex">
+        <div>
           {/* {Clicker} */}
-          <p className="flex pb-8">
+          <p
+            className="flex pb-8 cursor-pointer"
+            onClick={() => props.handlePageOpen("InnerHome")}
+          >
             <span className="pr-2 flex">
               <div>{home}</div>
             </span>
@@ -44,54 +49,66 @@ function SideBar(props) {
               category="span"
               textContent="Home"
               lineHeight={59}
-              fontWeight={600}
-              fontSize={11}
+              fontWeight={props.active == "InnerHome" ? false : 900}
+              fontSize={props.active == "InnerHome" ? 12 : 11}
               style={{
-                color: colors.light
+                color:
+                  props.active == "InnerHome" ? colors.primary : colors.light
               }}
             />
           </p>
         </div>
-        <p className="flex pb-8">
+        <p
+          className="flex pb-8 cursor-pointer"
+          onClick={() => props.handlePageOpen("DiscoverPage")}
+        >
           <span className="pr-2">{briefCase}</span>
           <Text
             category="span"
             textContent="Discovery"
             lineHeight={59}
-            fontWeight={600}
-            fontSize={11}
+            fontWeight={props.active == "DiscoverPage" ? false : 900}
+            fontSize={props.active == "DiscoverPage" ? 16 : 11}
             style={{
-              color: colors.light
+              color:
+                props.active == "DiscoverPage" ? colors.primary : colors.light
             }}
           />
         </p>
-        <p className="flex pb-8">
+        <p
+          className="flex pb-8 cursor-pointer"
+          onClick={() => props.handlePageOpen("FloppyLive")}
+        >
           <span className="pr-2">{tv}</span>
           <Text
             category="span"
             textContent="FloppyLive"
             lineHeight={59}
-            fontWeight={600}
-            fontSize={11}
+            fontWeight={props.active == "FloppyLive" ? false : 900}
+            fontSize={props.active == "FloppyLive" ? 16 : 11}
             style={{
-              color: colors.light
+              color:
+                props.active == "FloppyLive" ? colors.primary : colors.light
             }}
           />
         </p>
-        <p className="flex pb-8">
+        <p
+          className="flex pb-8 cursor-pointer"
+          onClick={() => props.handlePageOpen("Comedians")}
+        >
           <span className="pr-2">{userCheck}</span>
           <Text
             category="span"
             textContent="Comedians"
             lineHeight={59}
-            fontWeight={600}
-            fontSize={11}
+            fontWeight={props.active == "Comedians" ? false : 900}
+            fontSize={props.active == "Comedians" ? 16 : 11}
             style={{
-              color: colors.light
+              color: props.active == "Comedians" ? colors.primary : colors.light
             }}
           />
         </p>
-        <p className="flex pb-8">
+        <p className="flex pb-8 cursor-pointer">
           <span className="pr-2">{listBuger}</span>
           <Text
             category="span"
@@ -171,6 +188,7 @@ function SideBar(props) {
             textColor="light"
             height={36}
             width={120}
+            action={props.handleOpenPost}
           />
         </div>
       </div>

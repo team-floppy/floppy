@@ -1,6 +1,6 @@
 import React from "react";
 
-const CardDisplay = props => {
+const SubCardDisplay = props => {
   return (
     <div
       className="flex  flex-wrap"
@@ -15,4 +15,4 @@ const CardDisplay = props => {
   );
 };
 
-export default CardDisplay;
+export default SubCardDisplay;

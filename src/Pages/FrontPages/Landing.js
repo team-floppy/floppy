@@ -12,7 +12,7 @@ import { isMobile } from "react-device-detect";
 import AuthBox from "../../Components/Wrappers/AuthBox";
 import AuthBoxHero from "../../Components/Wrappers/AuthBoxHero";
 import AuthBoxInputs from "../../Components/Wrappers/AuthBoxInputs";
-import { facebook, twitter, google } from "../../Reusables/Socials";
+import { facebook, twitter, google, Footer } from "../../Reusables/Socials";
 import FloppyInput from "../../Components/Input/FloppyInput";
 import Signup from "../../Components/Auths/Signup";
 import Signin from "../../Components/Auths/Signin";
@@ -54,7 +54,7 @@ class Landing extends Component {
           <div className="container mx-auto px-10 py-5 pt-10">
             <LandingNavBar handleOpenPopUp={this.handleOpenPopUp} />
 
-            <div className="mt-64">
+            <div className="mt-40">
               <div>
                 <HeroText />
               </div>
@@ -90,10 +90,10 @@ class Landing extends Component {
         {/* Start of main content */}
         <div
           style={{ height: "auto", backgroundColor: colors.darkX }}
-          className="md:pb-20"
+          className="pt-10 pb-20"
         >
           <div
-            className={`container mx-auto ${isMobile ? "px-5" : "px-10"}
+            className={`container  mx-auto ${isMobile ? "px-5" : "px-10"}
              py-5`}
           >
             <Text
@@ -177,11 +177,38 @@ class Landing extends Component {
           </Overlay>
         )}
         <div
-          className="flex justify-between flex-wrap"
-          style={{ width: "100%", height: "50vh", background: colors.primary }}
+          className={`flex justify-between flex-wrap  ${
+            isMobile ? "px-10" : "px-16"
+          } ${isMobile ? "py-10" : "py-20"}`}
+          style={{ width: "100%", height: "100vh", background: colors.primary }}
         >
-          <div>hello</div>
-          <div>hi</div>
+          <div className="flex-auto">
+            <div style={{ width: "407px", height: "88px" }}>
+              <Text
+                category="p"
+                textContent="Share your craft with millions."
+                lineHeight={20}
+                fontSize={30}
+                style={{
+                  color: colors.darkX,
+                  fontWeight: " bolder",
+                  marginTop: 20,
+                  marginBottom: 20
+                }}
+              />
+              <FloppyButton
+                title="Join now"
+                borderColor="darkX"
+                textColor="darkX"
+                height={38}
+                width={157}
+                action={() => this.handleOpenPopUp("isSignUp")}
+              />
+            </div>
+          </div>
+          <div className=" flex-auto  ">
+            <Footer />
+          </div>
         </div>
       </section>
     );
