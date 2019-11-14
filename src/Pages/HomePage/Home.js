@@ -20,7 +20,7 @@ import Comedians from "./Comedians";
 import FloppyLive from "./FloppyLive";
 
 const nav = {
-  Comedians: <Comedians />,
+  // Comedians: <Comedians />,
   InnerHome: <InnerHome />,
   DiscoverPage: <DiscoverPage />,
   FloppyLive: <FloppyLive />
