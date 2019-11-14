@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import Dropzone from "react-dropzone";
 import MainNavBar from "../../Components/Navigation/MainNavBar";
 import colors from "../../Reusables/Colors";
@@ -15,9 +16,10 @@ import UserType from "../SetUpPages/UserType";
 import UserChoice from "../SetUpPages/UserChoice";
 import FloppyInput from "../../Components/Input/FloppyInput";
 import FloppyButton from "../../Components/Buttons/FloppyButton";
-
+import Loader from "../../imgs/loader.gif";
 import Comedians from "./Comedians";
 import FloppyLive from "./FloppyLive";
+import { userType } from "../../Actions/Auth";
 
 const nav = {
   Comedians: <Comedians />,
@@ -34,6 +36,7 @@ class Home extends Component {
       open: true,
       isPopUp: true,
       isPost: false,
+      isAuthing: false,
       isWhatNav: "InnerHome"
     };
   }
@@ -60,7 +63,15 @@ class Home extends Component {
     this.setState({ isWhatNav: whatNav });
   };
 
+  handleSubmit = () => {
+    const user = {};
+    this.props
+      .userIs(this.props.User.token, user)
+      .then()
+      .catch();
+  };
   render() {
+    const { isAuthing } = this.state;
     return (
       <>
         <section
@@ -221,4 +232,12 @@ class Home extends Component {
   }
 }
 
-export default Home;
+const mapDispatchToProps = dispatch => ({
+  userIs: data => dispatch(userType(data))
+});
+
+const mapStateToProps = ({ User }) => ({
+  User
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
