@@ -12,23 +12,33 @@ export const Logout = () => ({
 export const LoginUser = (user = {}) => {
   return dispatch => {
     return axios
-      .post("/auth", user)
+      .post("auth/authenticate", user)
       .then(({ data }) => {
-        console.log("User", data.token);
-        if (data.status == "failed" && data.message == "bad credentials") {
-          throw new Error("Wrong email or password");
+        if (data.success) {
+          return data;
         } else {
-          SetItem({
-            token: data.token,
-            user: { firstname: data.user.firstname }
-          }).then(res => {
-            dispatch(Login(data));
-            return data;
-          });
+          return data;
         }
       })
       .catch(error => {
         throw new Error(error);
+      });
+  };
+};
+
+export const RegisterUser = data => {
+  return dispatch => {
+    return axios
+      .post("auth/register", data)
+      .then(({ data }) => {
+        if (data.success) {
+          return data;
+        } else {
+          return data;
+        }
+      })
+      .catch(error => {
+        throw error;
       });
   };
 };

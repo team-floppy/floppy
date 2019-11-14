@@ -2,7 +2,7 @@ import React from "react";
 import {
   home,
   briefCase,
-  tv,
+  Tv,
   userCheck,
   listBuger,
   cancel,
@@ -79,7 +79,9 @@ function SideBar(props) {
           className="flex pb-8 cursor-pointer"
           onClick={() => props.handlePageOpen("FloppyLive")}
         >
-          <span className="pr-2">{tv}</span>
+          <span className="pr-2">
+            <Tv isActive={props.active == "FloppyLive" ? true : false} />
+          </span>
           <Text
             category="span"
             textContent="FloppyLive"

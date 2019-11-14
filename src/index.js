@@ -8,7 +8,7 @@ import CreateStore from "./Store/index";
 import axios from "axios";
 
 const store = CreateStore();
-axios.defaults.baseURL = "http://157.245.113.28:8080/api/";
+axios.defaults.baseURL = "http://localhost:8080/api/";
 // http://evolveapi.herokuapp.com/v1
 // const localUser = JSON.parse(GetItem());
 
