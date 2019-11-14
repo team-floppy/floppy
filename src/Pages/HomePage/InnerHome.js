@@ -31,6 +31,7 @@ const responsive = {
 function innerHome() {
   return (
     <div className="px-10">
+      <div className='flex'>
       <Text
         category="p"
         textContent="Recommended"
@@ -39,10 +40,24 @@ function innerHome() {
         fontSize={24}
         style={{
           color: colors.light,
-          marginBottom: 20,
+          marginBottom: 30,
           marginTop: 0
         }}
       />
+
+<Text
+          category="p"
+          textContent="See more"
+          lineHeight={29}
+          fontWeight={200}
+          fontSize={15}
+          style={{
+            color: colors.primary,
+            marginBottom: 20,
+            marginLeft:650
+          }}
+        />
+        </div>
       <SubCardDisplay>
         {dataTwo.map((comedy, i) => (
           <Card

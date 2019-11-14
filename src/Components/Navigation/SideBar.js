@@ -50,7 +50,7 @@ function SideBar(props) {
               textContent="Home"
               lineHeight={59}
               fontWeight={props.active == "InnerHome" ? false : 900}
-              fontSize={props.active == "InnerHome" ? 12 : 11}
+              fontSize={props.active == "InnerHome" ? 15 : 11}
               style={{
                 color:
                   props.active == "InnerHome" ? colors.primary : colors.light
@@ -68,7 +68,7 @@ function SideBar(props) {
             textContent="Discovery"
             lineHeight={59}
             fontWeight={props.active == "DiscoverPage" ? false : 900}
-            fontSize={props.active == "DiscoverPage" ? 16 : 11}
+            fontSize={props.active == "DiscoverPage" ? 15 : 11}
             style={{
               color:
                 props.active == "DiscoverPage" ? colors.primary : colors.light
@@ -87,7 +87,7 @@ function SideBar(props) {
             textContent="FloppyLive"
             lineHeight={59}
             fontWeight={props.active == "FloppyLive" ? false : 900}
-            fontSize={props.active == "FloppyLive" ? 16 : 11}
+            fontSize={props.active == "FloppyLive" ? 15 : 11}
             style={{
               color:
                 props.active == "FloppyLive" ? colors.primary : colors.light
@@ -104,7 +104,7 @@ function SideBar(props) {
             textContent="Comedians"
             lineHeight={59}
             fontWeight={props.active == "Comedians" ? false : 900}
-            fontSize={props.active == "Comedians" ? 16 : 11}
+            fontSize={props.active == "Comedians" ? 15 : 11}
             style={{
               color: props.active == "Comedians" ? colors.primary : colors.light
             }}
@@ -183,9 +183,9 @@ function SideBar(props) {
           />
         </p>
 
-        <div className="pb-28 mr-12">
+        <div className="pb-24 mr-12">
           <FloppyButton
-            title="Create post"
+            title="Create Skit"
             color="primary"
             textColor="light"
             height={36}

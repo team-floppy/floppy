@@ -22,7 +22,7 @@ import FloppyLive from "./FloppyLive";
 import { userType } from "../../Actions/Auth";
 
 const nav = {
-  Comedians: <Comedians />,
+  // Comedians: <Comedians />,
   InnerHome: <InnerHome />,
   DiscoverPage: <DiscoverPage />,
   FloppyLive: <FloppyLive />

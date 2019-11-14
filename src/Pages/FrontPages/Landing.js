@@ -79,7 +79,7 @@ class Landing extends Component {
                   textColor="darkX"
                   height={38}
                   width={200}
-                  style={{ marginTop: 40 }}
+                  style={{ marginTop: 40, }}
                   action={() => this.handleOpenPopUp("isSignUp")}
                 />
               </div>
@@ -96,18 +96,31 @@ class Landing extends Component {
             className={`container  mx-auto ${isMobile ? "px-5" : "px-10"}
              py-5`}
           >
+            <div className='flex'>
             <Text
               category="p"
               textContent="Popular"
               lineHeight={44}
-              fontWeight={500}
+              fontWeight={700}
               fontSize={25}
               style={{
                 color: colors.light,
                 marginBottom: 20
               }}
             />
-
+            <Text
+          category="p"
+          textContent="See more"
+          lineHeight={29}
+          fontWeight={200}
+          fontSize={15}
+          style={{
+            color: colors.primary,
+            marginLeft:1000,
+            marginTop:10
+          }}
+        />
+</div>
             <CardDisplay>
               {data.map((comedy, i) => (
                 <Card
@@ -120,19 +133,30 @@ class Landing extends Component {
                 />
               ))}
             </CardDisplay>
-            <div className="pt-10">
+            <div className="pt-10 flex">
               <Text
                 category="p"
                 textContent="Upcoming Live Shows"
                 lineHeight={44}
-                fontWeight={500}
+                fontWeight={700}
                 fontSize={25}
                 style={{
                   color: colors.light,
-
                   marginBottom: 20
                 }}
               />
+               <Text
+          category="p"
+          textContent="See more"
+          lineHeight={29}
+          fontWeight={200}
+          fontSize={15}
+          style={{
+            color: colors.primary,
+            marginLeft:850,
+            marginTop:10
+          }}
+        />
             </div>
             <CardDisplay>
               {events.map((event, i) => (
