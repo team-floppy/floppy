@@ -78,9 +78,13 @@ class UserChoice extends Component {
     this.props
       .userChoice(this.props.User.token, data)
       .then(res => {
+        localStorage.setItem("newguy", true);
         this.props.handleOpenPopUp();
       })
-      .catch(error => {});
+      .catch(error => {
+        localStorage.setItem("newguy", true);
+        this.props.handleOpenPopUp();
+      });
   };
   render() {
     const { isComedian, isViewer, open } = this.state;

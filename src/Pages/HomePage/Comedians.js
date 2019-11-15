@@ -235,7 +235,7 @@ function Comedians() {
         </SubCardDisplay>
       </>
       )}
-      {/* <Overlay>
+      <Overlay>
         <div
           style={{
             position: "absolute",
@@ -317,7 +317,7 @@ function Comedians() {
             </div>
           </div>
         </div>
-      </Overlay> */}
+      </Overlay>
     </div>
   );
 }

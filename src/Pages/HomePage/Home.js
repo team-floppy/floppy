@@ -16,6 +16,7 @@ import UserChoice from "../SetUpPages/UserChoice";
 import FloppyInput from "../../Components/Input/FloppyInput";
 import FloppyButton from "../../Components/Buttons/FloppyButton";
 import axios from "axios";
+import ProgressBar from "react-progressbar";
 import Comedians from "./Comedians";
 import FloppyLive from "./FloppyLive";
 
@@ -23,7 +24,8 @@ const nav = {
   Comedians: <Comedians />,
   InnerHome: <InnerHome />,
   DiscoverPage: <DiscoverPage />,
-  FloppyLive: <FloppyLive />
+  FloppyLive: <FloppyLive />,
+  Comedians: <Comedians />
 };
 
 class Home extends Component {
@@ -34,11 +36,15 @@ class Home extends Component {
       open: true,
       isPopUp: true,
       isPost: false,
+      dragText: "Drag and Drop Video here",
       isWhatNav: "InnerHome",
-      postTitle: "",
-      file: {},
+      fileName: "",
+      video: {},
       videoTags: "",
-      progress: 0
+      progress: 0,
+      isAuthing: false,
+      isWhatNav: "InnerHome",
+      dontShow: false
     };
   }
 
@@ -64,39 +70,49 @@ class Home extends Component {
     this.setState({ isWhatNav: whatNav });
   };
 
-  onChange = e => {
-    if (e.target.name.startsWith("file")) {
-      this.setState({ [e.target.name]: e.target.files[0] });
-    } else {
-      this.setState({ [e.target.name]: e.target.value });
-    }
-  };
+  // onChange = e => {
+  //   if (e.target.name.startsWith("video")) {
+  //     this.setState({ [e.target.name]: e.target.file[0] });
+  //   } else {
+  //     this.setState({ [e.target.name]: e.target.value });
+  //   }
+  // };
 
   onSubmit = e => {
     e.preventDefault();
 
     const { postTitle, file, videoTags } = this.state;
     var formdata = new FormData();
-    Object.keys(this.state).map(key => {
-      if (key.startsWith("file")) {
-        formdata.append("file", this.state[key]);
-      } else {
-        formdata.append(key, this.state[key]);
-      }
-    });
-    axios.post(`http://157.245.113.28/api/videos/upload/video`, formdata, {
+    formdata.append("video", this.state.video);
+    formdata.append("fileName", this.state.fileName);
+    formdata.append("videoTags", this.state.videoTags);
+    console.log(this.state.video);
+    // Object.keys(this.state).map(key => {
+    //   if (key.startsWith("video")) {
+    //     formdata.append("video", this.state[key]);
+    //   } else {
+    //     formdata.append(key, this.state[key]);
+    //   }
+    // });
+    console.log(this.state);
+    axios.post("http://localhost:8080/api/video/upload/video", formdata, {
       headers: {
-        "Content-Type": `multipart/form-data; boundary=${formdata._boundary}`
+        "Content-Type": `multipart/form-data; boundary=${formdata._boundary}`,
+        "x-access-token":
+          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNhZGlxYWppbXVzdGFwaGFAZ21haWwuY29tIiwidXNlcm5hbWUiOiJzYWRlZXFhamkiLCJpZCI6IjVkYmFiZGZlOGU3ZGI4NTIxYmYzNGVkYSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNTcyNTMzODc5LCJleHAiOjE1NzMxMzg2Nzl9.XMEvRXumapUf_66CrBCEqQ8EvbH4XWXppjGt0bzqDsg"
       },
       onUploadProgress: progress => {
         const { loaded, total } = progress;
         this.setState({ progress: Math.round((loaded / total) * 100) });
-        console.log(this.state.progress)
+        console.log(this.state.progress);
       }
     });
   };
 
   render() {
+    const divStyle = {
+      margin: "60px"
+    };
     return (
       <>
         <section
@@ -171,14 +187,17 @@ class Home extends Component {
                   >
                     <div className="p-8 ">
                       <FloppyInput
-                        action={this.onChange}
-                        type="post"
+                        action={e =>
+                          this.setState({ fileName: e.target.value })
+                        }
+                        type="fileName"
                         bgColor="dark"
                         placeholder="Post Title"
                         marginLeft={20}
                         height={30}
                         width={60}
                       />
+
                       <div
                         style={{
                           height: "200px",
@@ -188,7 +207,12 @@ class Home extends Component {
                       >
                         <Dropzone
                           type="file"
-                          onDrop={file => this.onChange}
+                          onDrop={video =>
+                            this.setState({
+                              video: video[0],
+                              dragText: video[0].na
+                            })
+                          }
                         >
                           {({ getRootProps, getInputProps }) => (
                             <section>
@@ -200,9 +224,10 @@ class Home extends Component {
                                 {...getRootProps()}
                               >
                                 <input {...getInputProps()} />
+
                                 <Text
                                   category="p"
-                                  textContent="Drag and Drop Video here"
+                                  textContent={this.state.dragText}
                                   lineHeight={20}
                                   fontWeight={500}
                                   fontSize={16}
@@ -213,10 +238,61 @@ class Home extends Component {
                                     paddingTop: 75
                                   }}
                                 />
+                                {this.state.progress !== 0 && this.state.progress !== 100 && (
+                                  <>
+                                    <p
+                                      style={{
+                                        textAlign: "center",
+                                        fontFamily: "Montserrat",
+                                        color: "#BDBDBD",
+                                        fontSize: "24px",
+                                        fontWeight: "600"
+                                      }}
+                                    >
+                                      uploading
+                                    </p>
+                                    <p
+                                      style={{
+                                        textAlign: "center",
+                                        fontFamily: "Montserrat",
+                                        color: "#BDBDBD",
+                                        fontSize: "24px",
+                                        fontStyle: "normal",
+                                        fontWeight: "bold"
+                                      }}
+                                    >
+                                      {this.state.progress}/100
+                                    </p>
+                                    <ProgressBar
+                                      completed={this.state.progress}
+                                      color="#FFA000"
+                                      style={{
+                                        margin: "15px",
+                                        borderRadius: "10px"
+                                      }}
+                                    />
+                                  </>
+                                ) }
+                                {this.state.progress === 100 && this.state.progress !== 0 && (
+                                  <>
+                                    <p
+                                      style={{
+                                        textAlign: "center",
+                                        fontFamily: "Montserrat",
+                                        color: "#BDBDBD",
+                                        fontSize: "24px"
+                                      }}
+                                    >
+                                      Uploaded
+                                    </p>
+                                  </>
+                                )}
                               </div>
                               <div className="mt-4">
                                 <FloppyInput
-                                  action={this.onChange}
+                                  action={e =>
+                                    this.setState({ videoTags: e.target.value })
+                                  }
                                   type="input"
                                   bgColor="dark"
                                   placeholder="#Tags"
@@ -237,6 +313,7 @@ class Home extends Component {
                                 />
 
                                 <FloppyButton
+                                  action={this.onSubmit}
                                   title="Post"
                                   borderColor="light"
                                   textColor="light"
