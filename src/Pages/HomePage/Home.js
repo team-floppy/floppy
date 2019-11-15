@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
 import Dropzone from "react-dropzone";
 import MainNavBar from "../../Components/Navigation/MainNavBar";
 import colors from "../../Reusables/Colors";
@@ -16,13 +15,12 @@ import UserType from "../SetUpPages/UserType";
 import UserChoice from "../SetUpPages/UserChoice";
 import FloppyInput from "../../Components/Input/FloppyInput";
 import FloppyButton from "../../Components/Buttons/FloppyButton";
-import Loader from "../../imgs/loader.gif";
+import axios from "axios";
 import Comedians from "./Comedians";
 import FloppyLive from "./FloppyLive";
-import { userType } from "../../Actions/Auth";
 
 const nav = {
-  // Comedians: <Comedians />,
+  Comedians: <Comedians />,
   InnerHome: <InnerHome />,
   DiscoverPage: <DiscoverPage />,
   FloppyLive: <FloppyLive />
@@ -36,8 +34,11 @@ class Home extends Component {
       open: true,
       isPopUp: true,
       isPost: false,
-      isAuthing: false,
-      isWhatNav: "InnerHome"
+      isWhatNav: "InnerHome",
+      postTitle: "",
+      file: {},
+      videoTags: "",
+      progress: 0
     };
   }
 
@@ -63,15 +64,39 @@ class Home extends Component {
     this.setState({ isWhatNav: whatNav });
   };
 
-  handleSubmit = () => {
-    const user = {};
-    this.props
-      .userIs(this.props.User.token, user)
-      .then()
-      .catch();
+  onChange = e => {
+    if (e.target.name.startsWith("file")) {
+      this.setState({ [e.target.name]: e.target.files[0] });
+    } else {
+      this.setState({ [e.target.name]: e.target.value });
+    }
   };
+
+  onSubmit = e => {
+    e.preventDefault();
+
+    const { postTitle, file, videoTags } = this.state;
+    var formdata = new FormData();
+    Object.keys(this.state).map(key => {
+      if (key.startsWith("file")) {
+        formdata.append("file", this.state[key]);
+      } else {
+        formdata.append(key, this.state[key]);
+      }
+    });
+    axios.post(`http://157.245.113.28/api/videos/upload/video`, formdata, {
+      headers: {
+        "Content-Type": `multipart/form-data; boundary=${formdata._boundary}`
+      },
+      onUploadProgress: progress => {
+        const { loaded, total } = progress;
+        this.setState({ progress: Math.round((loaded / total) * 100) });
+        console.log(this.state.progress)
+      }
+    });
+  };
+
   render() {
-    const { isAuthing } = this.state;
     return (
       <>
         <section
@@ -146,7 +171,8 @@ class Home extends Component {
                   >
                     <div className="p-8 ">
                       <FloppyInput
-                        type="input"
+                        action={this.onChange}
+                        type="post"
                         bgColor="dark"
                         placeholder="Post Title"
                         marginLeft={20}
@@ -161,7 +187,8 @@ class Home extends Component {
                         }}
                       >
                         <Dropzone
-                          onDrop={acceptedFiles => console.log(acceptedFiles)}
+                          type="file"
+                          onDrop={file => this.onChange}
                         >
                           {({ getRootProps, getInputProps }) => (
                             <section>
@@ -189,6 +216,7 @@ class Home extends Component {
                               </div>
                               <div className="mt-4">
                                 <FloppyInput
+                                  action={this.onChange}
                                   type="input"
                                   bgColor="dark"
                                   placeholder="#Tags"
@@ -232,12 +260,4 @@ class Home extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => ({
-  userIs: data => dispatch(userType(data))
-});
-
-const mapStateToProps = ({ User }) => ({
-  User
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default Home;

@@ -59,14 +59,16 @@ export const RegisterUser = data => {
     return axios
       .post("auth/register", data)
       .then(({ data }) => {
+        console.log(data)
         if (data.success) {
           return data;
         } else {
+          console.log("here")
           return data;
         }
       })
       .catch(error => {
-        throw error;
+       return error
       });
   };
 };
