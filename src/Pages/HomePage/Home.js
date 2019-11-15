@@ -18,12 +18,14 @@ import FloppyButton from "../../Components/Buttons/FloppyButton";
 
 import Comedians from "./Comedians";
 import FloppyLive from "./FloppyLive";
+import InnerComedians from "./InnerComedians";
 
 const nav = {
-  // Comedians: <Comedians />,
+   Comedians: <Comedians />,
   InnerHome: <InnerHome />,
   DiscoverPage: <DiscoverPage />,
-  FloppyLive: <FloppyLive />
+  FloppyLive: <FloppyLive />,
+  InnerComedians:<InnerComedians/>
 };
 
 class Home extends Component {

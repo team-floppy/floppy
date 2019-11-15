@@ -79,7 +79,7 @@ class Landing extends Component {
                   textColor="darkX"
                   height={38}
                   width={200}
-                  style={{ marginTop: 40, }}
+                  style={{ marginTop: 40 }}
                   action={() => this.handleOpenPopUp("isSignUp")}
                 />
               </div>
@@ -96,31 +96,31 @@ class Landing extends Component {
             className={`container  mx-auto ${isMobile ? "px-5" : "px-10"}
              py-5`}
           >
-            <div className='flex'>
-            <Text
-              category="p"
-              textContent="Popular"
-              lineHeight={44}
-              fontWeight={700}
-              fontSize={25}
-              style={{
-                color: colors.light,
-                marginBottom: 20
-              }}
-            />
-            <Text
-          category="p"
-          textContent="See more"
-          lineHeight={29}
-          fontWeight={200}
-          fontSize={15}
-          style={{
-            color: colors.primary,
-            marginLeft:1000,
-            marginTop:10
-          }}
-        />
-</div>
+            <div className="flex">
+              <Text
+                category="p"
+                textContent="Popular"
+                lineHeight={44}
+                fontWeight={700}
+                fontSize={25}
+                style={{
+                  color: colors.light,
+                  marginBottom: 20
+                }}
+              />
+              <Text
+                category="p"
+                textContent="See more"
+                lineHeight={29}
+                fontWeight={200}
+                fontSize={15}
+                style={{
+                  color: colors.primary,
+                  marginLeft: 1000,
+                  marginTop: 10
+                }}
+              />
+            </div>
             <CardDisplay>
               {data.map((comedy, i) => (
                 <Card
@@ -145,18 +145,18 @@ class Landing extends Component {
                   marginBottom: 20
                 }}
               />
-               <Text
-          category="p"
-          textContent="See more"
-          lineHeight={29}
-          fontWeight={200}
-          fontSize={15}
-          style={{
-            color: colors.primary,
-            marginLeft:850,
-            marginTop:10
-          }}
-        />
+              <Text
+                category="p"
+                textContent="See more"
+                lineHeight={29}
+                fontWeight={200}
+                fontSize={15}
+                style={{
+                  color: colors.primary,
+                  marginLeft: 850,
+                  marginTop: 10
+                }}
+              />
             </div>
             <CardDisplay>
               {events.map((event, i) => (
@@ -204,7 +204,7 @@ class Landing extends Component {
           className={`flex justify-between flex-wrap  ${
             isMobile ? "px-10" : "px-16"
           } ${isMobile ? "py-10" : "py-20"}`}
-          style={{ width: "100%", height: "100vh", background: colors.primary }}
+          style={{ width: "100%", height: "80vh", background: colors.primary }}
         >
           <div className="flex-auto">
             <div style={{ width: "407px", height: "88px" }}>
@@ -232,6 +232,76 @@ class Landing extends Component {
           </div>
           <div className=" flex-auto  ">
             <Footer />
+          </div>
+        </div>
+
+        <div>
+          <div
+            className="flex p-20 justify-between"
+            style={{
+              backgroundColor: colors.darkX,
+              height: 10,
+              width: "100%"
+            }}
+          >
+            <div className="flex">
+              <Text
+                category="p"
+                textContent="Terms of Use"
+                lineHeight={20}
+                fontSize={12}
+                style={{
+                  color: colors.light
+                }}
+              />
+              <Text
+                category="p"
+                textContent="Privacy"
+                lineHeight={20}
+                fontSize={12}
+                style={{
+                  color: colors.light,
+                  marginLeft: 20
+                }}
+              />
+              <Text
+                category="p"
+                textContent="Terms and Condition"
+                lineHeight={20}
+                fontSize={12}
+                style={{
+                  color: colors.light,
+                  marginLeft: 20
+                }}
+              />
+              <Text
+                category="p"
+                textContent="Help"
+                lineHeight={20}
+                fontSize={12}
+                style={{
+                  color: colors.light,
+                  marginLeft: 20
+                }}
+              />
+            </div>
+
+            <div>
+              <Text
+                category="p"
+                textContent="C 2019 Floppy.All rights Reserved."
+                lineHeight={20}
+                fontSize={10}
+                style={{
+                  color: colors.light
+                }}
+              />
+            </div>
+            <div className="flex justify-between w-40">
+              {facebook}
+              {twitter}
+              {google}
+            </div>
           </div>
         </div>
       </section>

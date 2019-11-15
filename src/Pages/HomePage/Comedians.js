@@ -234,7 +234,7 @@ function Comedians() {
           ))}
         </SubCardDisplay>
       </>
-      )}
+      
       {/* <Overlay>
         <div
           style={{
