@@ -31,21 +31,21 @@ const responsive = {
 function innerHome() {
   return (
     <div className="px-10">
-      <div className='flex'>
-      <Text
-        category="p"
-        textContent="Recommended"
-        lineHeight={29}
-        fontWeight={600}
-        fontSize={24}
-        style={{
-          color: colors.light,
-          marginBottom: 30,
-          marginTop: 0
-        }}
-      />
+      <div className="flex">
+        <Text
+          category="p"
+          textContent="Recommended"
+          lineHeight={29}
+          fontWeight={600}
+          fontSize={24}
+          style={{
+            color: colors.light,
+            marginBottom: 30,
+            marginTop: 0
+          }}
+        />
 
-<Text
+        <Text
           category="p"
           textContent="See more"
           lineHeight={29}
@@ -54,10 +54,10 @@ function innerHome() {
           style={{
             color: colors.primary,
             marginBottom: 20,
-            marginLeft:650
+            marginLeft: 650
           }}
         />
-        </div>
+      </div>
       <SubCardDisplay>
         {dataTwo.map((comedy, i) => (
           <Card
@@ -83,11 +83,46 @@ function innerHome() {
         }}
       />
       <Carousel responsive={responsive}>
-        <Avartar width={200} height={200} marginTop={20} />
-        <Avartar width={200} height={200} marginTop={20} />
-        <Avartar width={200} height={200} marginTop={20} />
-        <Avartar width={200} height={200} marginTop={20} />
-        <Avartar width={200} height={200} marginTop={20} />
+        <Avartar
+          width={200}
+          height={200}
+          marginTop={20}
+          img={
+            "https://res.cloudinary.com/dus4sijdt/image/upload/v1573804609/boa1511307851_755653926_ewzoqf.jpg"
+          }
+        />
+        <Avartar
+          width={200}
+          height={200}
+          marginTop={20}
+          img={
+            "https://res.cloudinary.com/dus4sijdt/image/upload/v1573815922/Bovi-Ugboma_osqqjy.jpg"
+          }
+        />
+        <Avartar
+          width={200}
+          height={200}
+          marginTop={20}
+          img={
+            "https://res.cloudinary.com/dus4sijdt/image/upload/v1573816007/I-Go-Die_jry0w0.jpg "
+          }
+        />
+        <Avartar
+          width={200}
+          height={200}
+          marginTop={20}
+          img={
+            "https://res.cloudinary.com/dus4sijdt/image/upload/v1573804609/boa1511307851_755653926_ewzoqf.jpg"
+          }
+        />
+        <Avartar
+          width={200}
+          height={200}
+          marginTop={20}
+          img={
+            "https://res.cloudinary.com/dus4sijdt/image/upload/v1573815922/Bovi-Ugboma_osqqjy.jpg"
+          }
+        />
       </Carousel>
       <Text
         category="p"

@@ -1,10 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
 import {
-  home,
-  briefCase,
+  Home,
+  BriefCase,
   Tv,
-  userCheck,
+  UserCheck,
   listBuger,
   cancel,
   DashBoard,
@@ -44,7 +44,9 @@ function SideBar(props) {
             onClick={() => props.handlePageOpen("InnerHome")}
           >
             <span className="pr-2 flex">
-              <div>{home}</div>
+              <div>
+                <Home isActive={props.active == "InnerHome" ? true : false} />
+              </div>
             </span>
             <Text
               category="span"
@@ -63,7 +65,11 @@ function SideBar(props) {
           className="flex pb-8 cursor-pointer"
           onClick={() => props.handlePageOpen("DiscoverPage")}
         >
-          <span className="pr-2">{briefCase}</span>
+          <span className="pr-2">
+            <BriefCase
+              isActive={props.active == "DiscoverPage" ? true : false}
+            />
+          </span>
           <Text
             category="span"
             textContent="Discovery"
@@ -99,7 +105,9 @@ function SideBar(props) {
           className="flex pb-8 cursor-pointer"
           onClick={() => props.handlePageOpen("Comedians")}
         >
-          <span className="pr-2">{userCheck}</span>
+          <span className="pr-2">
+            <UserCheck isActive={props.active == "Comedians" ? true : false} />
+          </span>
           <Text
             category="span"
             textContent="Comedians"
