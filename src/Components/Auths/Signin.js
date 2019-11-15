@@ -127,6 +127,21 @@ class Signin extends React.Component {
                           this.setState({ password: e.target.value })
                         }
                       />
+                      <div className="flex justify-end">
+                        <Text
+                          category="span"
+                          textContent="Forget password?"
+                          lineHeight={59}
+                          fontWeight={200}
+                          fontSize={10}
+                          style={{
+                            textAlign: "center",
+                            color: colors.primary,
+                            marginTop: 5,
+                            marginRight: 5
+                          }}
+                        />
+                      </div>
                     </div>
 
                     <FloppyButton

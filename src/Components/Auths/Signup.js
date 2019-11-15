@@ -54,7 +54,9 @@ class Signup extends React.Component {
   };
 
   onCloseModal = () => {
-    this.setState({ open: false });
+    this.setState({ open: false }, () => {
+      this.props.handleOpenPopUpSwitch();
+    });
   };
   render() {
     const { isAuthing, open } = this.state;

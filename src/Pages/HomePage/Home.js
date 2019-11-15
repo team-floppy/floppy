@@ -25,7 +25,8 @@ const nav = {
   // Comedians: <Comedians />,
   InnerHome: <InnerHome />,
   DiscoverPage: <DiscoverPage />,
-  FloppyLive: <FloppyLive />
+  FloppyLive: <FloppyLive />,
+  Comedians: <Comedians />
 };
 
 class Home extends Component {
@@ -37,7 +38,8 @@ class Home extends Component {
       isPopUp: true,
       isPost: false,
       isAuthing: false,
-      isWhatNav: "InnerHome"
+      isWhatNav: "InnerHome",
+      dontShow: false
     };
   }
 
@@ -70,8 +72,18 @@ class Home extends Component {
       .then()
       .catch();
   };
+
+  componentDidMount() {
+    const newguy = localStorage.getItem("newguy");
+    const parsedNewGuy = JSON.parse(newguy);
+    if (parsedNewGuy) {
+      this.setState({ isPopUp: false });
+    } else {
+      this.setState({ isPopUp: true });
+    }
+  }
   render() {
-    const { isAuthing } = this.state;
+    const { isAuthing, dontShow } = this.state;
     return (
       <>
         <section
