@@ -2,10 +2,14 @@ import React, { Component } from "react";
 import StepWizard from "react-step-wizard";
 import { isMobile } from "react-device-detect";
 import SetUpBox from "../../Components/Wrappers/SetUpBox";
+import { Type } from "../../Actions/Auth";
+import Loader from "../../imgs/loader.gif";
+import { connect } from "react-redux";
 import { Viewer, Comedian } from "../../Reusables/Icons";
 import Text from "../../Components/Typography/Text";
 import colors from "../../Reusables/Colors";
 import FloppyButton from "../../Components/Buttons/FloppyButton";
+import FloppyModal from "../../Components/Modal/FloppyModal";
 
 class UserType extends Component {
   state = {
@@ -34,8 +38,23 @@ class UserType extends Component {
       current: 0
     }));
   };
+
+  handleNext = () => {
+    const { current } = this.state;
+    if (current === 0) {
+      this.props.userIs("Comedian");
+    } else {
+      this.props.userIs("Viewer");
+    }
+    this.props.nextStep();
+  };
+
+  onCloseModal = () => {
+    this.setState({ open: false });
+  };
+
   render() {
-    const { isComedian, isViewer } = this.state;
+    const { isComedian, isViewer, current, open, modalMessage } = this.state;
     return (
       <div
         className="flex justify-center"
@@ -85,7 +104,7 @@ class UserType extends Component {
               textColor="light"
               height={38}
               width={isMobile ? 200 : 300}
-              action={this.props.nextStep}
+              action={this.handleNext}
             />
           </div>
         </div>
@@ -93,5 +112,12 @@ class UserType extends Component {
     );
   }
 }
+const mapDispatchToProps = dispatch => ({
+  userIs: data => dispatch(Type(data))
+});
 
-export default UserType;
+const mapStateToProps = ({ User }) => ({
+  User
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserType);

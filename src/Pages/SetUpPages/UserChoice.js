@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import StepWizard from "react-step-wizard";
 import { isMobile } from "react-device-detect";
+import { userType } from "../../Actions/Auth";
+import Loader from "../../imgs/loader.gif";
+import { connect } from "react-redux";
 import SetUpBox from "../../Components/Wrappers/SetUpBox";
 import { Viewer, Comedian } from "../../Reusables/Icons";
 import Text from "../../Components/Typography/Text";
@@ -9,6 +12,7 @@ import FloppyButton from "../../Components/Buttons/FloppyButton";
 import Choice from "../../Components/Wrappers/Choice";
 import CardDisplay from "../../Components/Wrappers/CardDisplay";
 import CheckButton from "../../Components/Buttons/CheckButton";
+import FloppyModal from "../../Components/Modal/FloppyModal";
 
 const genres = [
   "Cracks",
@@ -26,6 +30,7 @@ class UserChoice extends Component {
   state = {
     isComedian: false,
     isViewer: true,
+    modalMessage: "",
     current: 1,
     choice: []
   };
@@ -63,8 +68,26 @@ class UserChoice extends Component {
       current: 0
     }));
   };
+
+  handleSubmit = () => {
+    const data = {
+      role: this.props.User.type,
+      preference: this.state.choice
+    };
+
+    this.props
+      .userChoice(this.props.User.token, data)
+      .then(res => {
+        localStorage.setItem("newguy", true);
+        this.props.handleOpenPopUp();
+      })
+      .catch(error => {
+        localStorage.setItem("newguy", true);
+        this.props.handleOpenPopUp();
+      });
+  };
   render() {
-    const { isComedian, isViewer } = this.state;
+    const { isComedian, isViewer, open } = this.state;
 
     return (
       <div
@@ -127,7 +150,7 @@ class UserChoice extends Component {
               textColor="light"
               height={38}
               width={isMobile ? 200 : 300}
-              action={this.props.handleOpenPopUp}
+              action={this.handleSubmit}
             />
           </div>
 
@@ -151,9 +174,22 @@ class UserChoice extends Component {
             </span>
           </div> */}
         </div>
+        <FloppyModal
+          modalMessage={this.state.modalMessage}
+          onCloseModal={this.onCloseModal}
+          open={open}
+        />
       </div>
     );
   }
 }
 
-export default UserChoice;
+const mapDispatchToProps = dispatch => ({
+  userChoice: (token, data) => dispatch(userType(token, data))
+});
+
+const mapStateToProps = ({ User }) => ({
+  User
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserChoice);

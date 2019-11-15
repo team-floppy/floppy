@@ -195,6 +195,7 @@ class Landing extends Component {
                 <Signin
                   handleOpenPopUp={this.handleOpenPopUp}
                   handleOpenPopUpSwitch={this.handleOpenPopUpSwitch}
+                  history={this.props.history}
                 />
               )}
             </div>
