@@ -6,6 +6,7 @@ import "./styles/tailwind.css";
 import { Provider } from "react-redux";
 import CreateStore from "./Store/index";
 import axios from "axios";
+// import 'bootstrap/dist/css/bootstrap.min.css';
 
 const store = CreateStore();
 axios.defaults.baseURL = "http://localhost:8080/api/";

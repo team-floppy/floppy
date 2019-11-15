@@ -38,6 +38,7 @@ class Signup extends React.Component {
         password
       })
       .then(data => {
+        console.log(data)
         this.setState({
           isAuthing: false,
           open: true,
