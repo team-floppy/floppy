@@ -148,8 +148,25 @@ export const chevron = (
   </svg>
 );
 
-export const home = (
+export const Home = props=> (
+  <>
+  {props.isActive ? (
   <svg
+    width="20"
+    height="20"
+    viewBox="0 0 24 24"
+    fill="#FFA000"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      fill-rule="evenodd"
+      clip-rule="evenodd"
+      d="M12 2L3 9V20C3 20.5304 3.21071 21.0391 3.58579 21.4142C3.96086 21.7893 4.46957 22 5 22H9V12H15V22H19C19.5304 22 20.0391 21.7893 20.4142 21.4142C20.7893 21.0391 21 20.5304 21 20V9L12 2Z"
+      fill="#FFA000"
+    />
+    </svg>
+    ):(
+      <svg
     width="20"
     height="20"
     viewBox="0 0 24 24"
@@ -162,32 +179,46 @@ export const home = (
       d="M12 2L3 9V20C3 20.5304 3.21071 21.0391 3.58579 21.4142C3.96086 21.7893 4.46957 22 5 22H9V12H15V22H19C19.5304 22 20.0391 21.7893 20.4142 21.4142C20.7893 21.0391 21 20.5304 21 20V9L12 2Z"
       fill="#F5F7F4"
     />
-  </svg>
+    </svg> 
+    )}
+  </>
 );
 
-export const briefCase = (
-  <svg
-    width="20"
-    height="20"
-    viewBox="0 0 24 24"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M20 7H4C2.89543 7 2 7.89543 2 9V19C2 20.1046 2.89543 21 4 21H20C21.1046 21 22 20.1046 22 19V9C22 7.89543 21.1046 7 20 7Z"
-      stroke="#BDBDBD"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    />
-    <path
-      d="M16 21V5C16 4.46957 15.7893 3.96086 15.4142 3.58579C15.0391 3.21071 14.5304 3 14 3H10C9.46957 3 8.96086 3.21071 8.58579 3.58579C8.21071 3.96086 8 4.46957 8 5V21"
-      stroke="#BDBDBD"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    />
-  </svg>
+export const BriefCase = props => (
+  <>
+   {props.isActive ? (
+         
+         <svg width="24" height="24" viewBox="0 0 24 24" fill="#FFA000" xmlns="http://www.w3.org/2000/svg">
+         <path fill-rule="evenodd" clip-rule="evenodd" d="M7 7H4C2.89543 7 2 7.89543 2 9V19C2 20.1046 2.89543 21 4 21H7V7ZM9 21H15V7H9V21ZM17 7V21H20C21.1046 21 22 20.1046 22 19V9C22 7.89543 21.1046 7 20 7H17Z" fill="#FFA000"/>
+         <path d="M16 5C16 4.46957 15.7893 3.96086 15.4142 3.58579C15.0391 3.21071 14.5304 3 14 3H10C9.46957 3 8.96086 3.21071 8.58579 3.58579C8.21071 3.96086 8 4.46957 8 5" stroke="#FFA000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+         </svg>
+         
+ 
+   ):(
+ <svg
+ width="20"
+ height="20"
+ viewBox="0 0 24 24"
+ fill="none"
+ xmlns="http://www.w3.org/2000/svg"
+>
+ <path
+   d="M20 7H4C2.89543 7 2 7.89543 2 9V19C2 20.1046 2.89543 21 4 21H20C21.1046 21 22 20.1046 22 19V9C22 7.89543 21.1046 7 20 7Z"
+   stroke="#BDBDBD"
+   stroke-width="2"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+ />
+ <path
+   d="M16 21V5C16 4.46957 15.7893 3.96086 15.4142 3.58579C15.0391 3.21071 14.5304 3 14 3H10C9.46957 3 8.96086 3.21071 8.58579 3.58579C8.21071 3.96086 8 4.46957 8 5V21"
+   stroke="#BDBDBD"
+   stroke-width="2"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+ />
+</svg>
+   )}
+   </>
 );
 
 export const Tv = props => (
@@ -284,7 +315,15 @@ export const watchLater = (
   </svg>
 );
 
-export const userCheck = (
+export const UserCheck = props => (
+  <>
+  {props.isActive ? (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="#FFA000" xmlns="http://www.w3.org/2000/svg">
+    <path d="M16 21V19C16 17.9391 15.5786 16.9217 14.8284 16.1716C14.0783 15.4214 13.0609 15 12 15H5C3.93913 15 2.92172 15.4214 2.17157 16.1716C1.42143 16.9217 1 17.9391 1 19V21" fill="#FFA000"/>
+    <path d="M8.5 11C10.7091 11 12.5 9.20914 12.5 7C12.5 4.79086 10.7091 3 8.5 3C6.29086 3 4.5 4.79086 4.5 7C4.5 9.20914 6.29086 11 8.5 11Z" fill="#FFA000"/>
+    <path d="M17 11L19 13L23 9" fill="#FFA000"/>
+    </svg>
+  ):(
   <svg
     width="20"
     height="20"
@@ -314,6 +353,8 @@ export const userCheck = (
       stroke-linejoin="round"
     />
   </svg>
+  )}
+  </>
 );
 
 export const line = (

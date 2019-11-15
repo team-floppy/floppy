@@ -186,9 +186,7 @@ class Signin extends React.Component {
     );
   }
 }
-
 const mapDispatchToProps = dispatch => ({
   userLogin: data => dispatch(LoginUser(data))
 });
-
 export default connect(undefined, mapDispatchToProps)(Signin);

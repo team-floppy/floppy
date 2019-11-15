@@ -5,7 +5,9 @@ function Avartar(props) {
   return (
     <>
       <div
+        className="bg-no-repeat bg-cover"
         style={{
+          backgroundImage: `url(${props.img})  `,
           width: props.width,
           height: props.height,
           borderRadius: "50%",
