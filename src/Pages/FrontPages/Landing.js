@@ -21,7 +21,8 @@ class Landing extends Component {
   state = {
     isPopUp: false,
     isSignUp: false,
-    isSignIn: false
+    isSignIn: false,
+    isOpen: false
   };
 
   handleOpenPopUp = isWhat => {
@@ -32,6 +33,12 @@ class Landing extends Component {
     }
     this.setState(prevState => ({
       isPopUp: !prevState.isPopUp
+    }));
+  };
+
+  handleOpen = () => {
+    this.setState(prevState => ({
+      isOpen: !prevState.isOpen
     }));
   };
 
@@ -52,7 +59,11 @@ class Landing extends Component {
           style={styles.heroContainer}
         >
           <div className="container mx-auto px-10 py-5 pt-10">
-            <LandingNavBar handleOpenPopUp={this.handleOpenPopUp} />
+            <LandingNavBar
+              handleOpenPopUp={this.handleOpenPopUp}
+              isOpen={this.state.isOpen}
+              handleOpen={this.handleOpen}
+            />
 
             <div className="mt-40">
               <div>
@@ -79,7 +90,7 @@ class Landing extends Component {
                   textColor="darkX"
                   height={38}
                   width={200}
-                  style={{ marginTop: 40, }}
+                  style={{ marginTop: 40 }}
                   action={() => this.handleOpenPopUp("isSignUp")}
                 />
               </div>
@@ -96,31 +107,31 @@ class Landing extends Component {
             className={`container  mx-auto ${isMobile ? "px-5" : "px-10"}
              py-5`}
           >
-            <div className='flex'>
-            <Text
-              category="p"
-              textContent="Popular"
-              lineHeight={44}
-              fontWeight={700}
-              fontSize={25}
-              style={{
-                color: colors.light,
-                marginBottom: 20
-              }}
-            />
-            <Text
-          category="p"
-          textContent="See more"
-          lineHeight={29}
-          fontWeight={200}
-          fontSize={15}
-          style={{
-            color: colors.primary,
-            marginLeft:1000,
-            marginTop:10
-          }}
-        />
-</div>
+            <div className="flex">
+              <Text
+                category="p"
+                textContent="Popular"
+                lineHeight={44}
+                fontWeight={700}
+                fontSize={25}
+                style={{
+                  color: colors.light,
+                  marginBottom: 20
+                }}
+              />
+              <Text
+                category="p"
+                textContent="See more"
+                lineHeight={29}
+                fontWeight={200}
+                fontSize={15}
+                style={{
+                  color: colors.primary,
+                  marginLeft: 1000,
+                  marginTop: 10
+                }}
+              />
+            </div>
             <CardDisplay>
               {data.map((comedy, i) => (
                 <Card
@@ -130,6 +141,7 @@ class Landing extends Component {
                   title={comedy.title}
                   views={comedy.views}
                   username={comedy.username}
+                  action={this.handleOpen}
                 />
               ))}
             </CardDisplay>
@@ -145,18 +157,18 @@ class Landing extends Component {
                   marginBottom: 20
                 }}
               />
-               <Text
-          category="p"
-          textContent="See more"
-          lineHeight={29}
-          fontWeight={200}
-          fontSize={15}
-          style={{
-            color: colors.primary,
-            marginLeft:850,
-            marginTop:10
-          }}
-        />
+              <Text
+                category="p"
+                textContent="See more"
+                lineHeight={29}
+                fontWeight={200}
+                fontSize={15}
+                style={{
+                  color: colors.primary,
+                  marginLeft: 850,
+                  marginTop: 10
+                }}
+              />
             </div>
             <CardDisplay>
               {events.map((event, i) => (

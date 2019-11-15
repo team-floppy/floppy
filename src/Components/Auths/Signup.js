@@ -65,7 +65,7 @@ class Signup extends React.Component {
         <AuthBox>
           {isAuthing ? (
             <div className="flex justify-center items-center h-full">
-              <img src={Loader} width="100" height="100" />
+              <img src={Loader} width="200" height="200" />
             </div>
           ) : (
             <AuthBoxInputs>

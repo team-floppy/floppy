@@ -1,4 +1,5 @@
 import React from "react";
+import { connect } from "react-redux";
 import {
   home,
   briefCase,
@@ -123,37 +124,41 @@ function SideBar(props) {
             }}
           />
         </p>
-        <p className="flex pb-8">
-          <span className="pr-2">{DashBoard}</span>
-          <Text
-            category="span"
-            textContent="Analytics"
-            lineHeight={59}
-            fontWeight={600}
-            fontSize={11}
-            style={{
-              color: colors.light
-            }}
-          />
-        </p>
+        {props.User.type == "Comedian" && (
+          <p className="flex pb-8">
+            <span className="pr-2">{DashBoard}</span>
+            <Text
+              category="span"
+              textContent="Analytics"
+              lineHeight={59}
+              fontWeight={600}
+              fontSize={11}
+              style={{
+                color: colors.light
+              }}
+            />
+          </p>
+        )}
 
         <div className="mb-2">
           <span>{line}</span>
         </div>
 
-        <p className="flex pb-6 pt-5">
-          <span className="pr-2">{arrowUp}</span>
-          <Text
-            category="span"
-            textContent="Your Post"
-            lineHeight={59}
-            fontWeight={600}
-            fontSize={10}
-            style={{
-              color: colors.light
-            }}
-          />
-        </p>
+        {props.User.type == "Comedian" && (
+          <p className="flex pb-6 pt-5">
+            <span className="pr-2">{arrowUp}</span>
+            <Text
+              category="span"
+              textContent="Your Post"
+              lineHeight={59}
+              fontWeight={600}
+              fontSize={10}
+              style={{
+                color: colors.light
+              }}
+            />
+          </p>
+        )}
 
         <p className="flex pb-6">
           <span className="pr-2">{favourites}</span>
@@ -183,16 +188,18 @@ function SideBar(props) {
           />
         </p>
 
-        <div className="pb-24 mr-12">
-          <FloppyButton
-            title="Create Skit"
-            color="primary"
-            textColor="light"
-            height={36}
-            width={120}
-            action={props.handleOpenPost}
-          />
-        </div>
+        {props.User.type == "Comedian" && (
+          <div className="pb-24 mr-12">
+            <FloppyButton
+              title="Create Skit"
+              color="primary"
+              textColor="darkX"
+              height={36}
+              width={120}
+              action={props.handleOpenPost}
+            />
+          </div>
+        )}
       </div>
     </>
   );
@@ -204,4 +211,12 @@ const styles = {
   }
 };
 
-export default SideBar;
+// const mapDispatchToProps = dispatch => ({
+//   userChoice: (token, data) => dispatch(userType(token, data))
+// });
+
+const mapStateToProps = ({ User }) => ({
+  User
+});
+
+export default connect(mapStateToProps, undefined)(SideBar);

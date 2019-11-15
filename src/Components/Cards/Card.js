@@ -41,7 +41,7 @@ const Card = props => {
         }}
       >
         {!props.event && (
-          <div className="w-full  p-3 flex justify-end">
+          <div className="w-full  p-3 flex justify-end" onClick={props.action}>
             <Play />
           </div>
         )}
